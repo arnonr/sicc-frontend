@@ -413,6 +413,46 @@
                                     </div>
                                   </div>
 
+
+                                  <!--  -->
+                                  <div class="form-group row mt-10">
+                                    <label
+                                      for="ProvinceAmphurTumbol"
+                                      class="col-sm-4 col-form-label"
+                                      ><span class="text-danger">*</span
+                                      >ตำบล/อำเภอ/จังหวัด :
+                                    </label>
+                                    <div class="col-sm-8">
+                                      <v-select
+                                        :label="'label'"
+                                        placeholder="จังหวัด/อำเภอ/ตำบล"
+                                        :options="selectOptions.address_all"
+                                        item-value="id"
+                                        id="slt-province-amphur-tumbol"
+                                        v-model="booking.address_all"
+                                        class="form-control v-select-no-border"
+                                        :clearable="true"
+                                      ></v-select>
+                                    </div>
+                                  </div>
+
+                                  <div class="form-group row mt-10">
+                                    <label
+                                      for="staticEmail"
+                                      class="col-sm-4 col-form-label"
+                                      ><span class="text-danger">*</span
+                                      >โทรศัพท์ที่สามารถติดต่อได้/Phone :
+                                    </label>
+                                    <div class="col-sm-8">
+                                      <input
+                                        type="text"
+                                        class="form-control form-control-plaintext"
+                                        id="txt-phone2"
+                                        v-model="booking.phone2"
+                                      />
+                                    </div>
+                                  </div>
+
                                   <div class="form-group row mt-10">
                                     <label
                                       for="staticEmail"
@@ -625,6 +665,26 @@
                                       >
                                       <hr class="hr-dotted" />
                                     </div>
+
+                                    <div class="col-lg-12 mt-10">
+                                      <span class="fw-bold text-dark"
+                                        >ตำบล/จังหวัด/อำเภอ : </span
+                                      ><span
+                                        class="text-color-primary fw-bold"
+                                        >{{ booking.address_all.label }}</span
+                                      >
+                                      <hr class="hr-dotted" />
+                                    </div>
+
+                                    <div class="col-lg-12 mt-10">
+                                      <span class="fw-bold text-dark"
+                                        >โทรศัพท์ที่สามารถติดต่อได้/Phone : </span
+                                      ><span
+                                        class="text-color-primary fw-bold"
+                                        >{{ booking.phone2 }}</span
+                                      >
+                                      <hr class="hr-dotted" />
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -678,6 +738,7 @@
 
 <script setup>
 import booking_data from "~~/mixins/bookingData";
+import address_all_data from "~~/mixins/addressAllData";
 import dayjs from "dayjs";
 import "dayjs/locale/th";
 import buddhistEra from "dayjs/plugin/buddhistEra";
@@ -706,6 +767,14 @@ const stepLength = ref(2);
 const item = ref(null);
 
 // Equipment_booking
+const address_all = ref([]);
+
+address_all.value = address_all_data.data().addresses.map((el) => {
+  el.label =
+    el.district + " > " + el.amphoe + " > " + el.province + " > " + el.zipcode;
+  return el;
+});
+
 const booking = ref({
   booking_date: dayjs(),
   example: "",
@@ -719,12 +788,15 @@ const booking = ref({
   organization: "",
   contact_address: "",
   phone: "",
+  phone2: "",
   email: "",
   invoice_address: "",
   tax_id: "",
   total_price: 0,
   status_id: 1,
   is_publish: 1,
+  address_all: "",
+  district_code: ""
 });
 const equipmentMethod = ref([]);
 const profile = ref({});
@@ -734,6 +806,7 @@ const text_summary_error = ref("โปรดระบุข้อมูลให
 const selectOptions = ref({
   member_statuses: booking_data.data().member_statuses,
   period_times: booking_data.data().period_times,
+  address_all: address_all,
 });
 
 const format = (date) => {
@@ -758,6 +831,14 @@ watch(
       booking.value.period_time = null;
       onCheckBookingDate();
     }
+  },
+  { deep: true }
+);
+
+watch(
+  () => booking.value.address_all,
+  (new_value) => {
+    booking.value.district_code = new_value.district_code;
   },
   { deep: true }
 );

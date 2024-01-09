@@ -286,6 +286,25 @@
                                   }}</span>
                                   <hr class="hr-dotted" />
                                 </div>
+
+                                <div class="col-lg-12 mt-10">
+                                  <span class="fw-bold text-dark"
+                                    >ตำบล/อำเภอ/จังหวัด : </span
+                                  ><span
+                                    class="text-color-primary fw-bold"
+                                  >{{ booking.address_all.label}}</span>
+                                  <hr class="hr-dotted" />
+                                </div>
+
+                                <div class="col-lg-12 mt-10">
+                                  <span class="fw-bold text-dark"
+                                    >โทรศัพท์ที่สามารถติดต่อได้/Phone : </span
+                                  ><span class="text-color-primary fw-bold">{{
+                                    booking.phone2
+                                  }}</span>
+                                  <hr class="hr-dotted" />
+                                </div>
+
                               </div>
                             </div>
                           </div>
@@ -379,6 +398,7 @@
 
 <script setup>
 import booking_data from "~~/mixins/bookingData";
+import address_all_data from "~~/mixins/addressAllData";
 import dayjs from "dayjs";
 import "dayjs/locale/th";
 import buddhistEra from "dayjs/plugin/buddhistEra";
@@ -397,6 +417,14 @@ const router = useRouter();
 // Equipment
 const item = ref(null);
 
+const address_all = ref([]);
+
+address_all.value = address_all_data.data().addresses.map((el) => {
+  el.label =
+    el.district + " > " + el.amphoe + " > " + el.province + " > " + el.zipcode;
+  return el;
+});
+
 // Equipment_booking
 const booking = ref({
   booking_date: dayjs(),
@@ -410,12 +438,15 @@ const booking = ref({
   organization: "",
   contact_address: "",
   phone: "",
+  phone2: "",
   email: "",
+  district_code: null,
   invoice_address: "",
   tax_id: "",
   total_price: 0,
   status_id: 1,
   is_publish: 1,
+  address_all: "",
 });
 const equipmentMethod = ref([]);
 const checkSummary = ref(false);
@@ -426,6 +457,7 @@ const selectOptions = ref({
   member_statuses: booking_data.data().member_statuses,
   booking_statuses: booking_data.data().booking_statuses,
   period_times: booking_data.data().period_times,
+  address_all: address_all,
 });
 
 // Function Fetch
@@ -442,6 +474,10 @@ const { data: res1 } = await useAsyncData("booking", async () => {
 });
 
 booking.value = res1.value.data;
+
+booking.value.address_all = address_all.value.find((x) => {
+  return x.district_code == booking.value.district_code;
+});
 
 const { data: res } = await useAsyncData("equipment", async () => {
   let data = await $fetch(

@@ -150,7 +150,7 @@
         </h4>
       </div>
       <div class="mb-30">
-        <button
+        <!-- <button
           type="button"
           class="btn btn-warning"
           @click="
@@ -161,7 +161,7 @@
         >
           <i class="fa-regular fa-plus"></i>
           ADD
-        </button>
+        </button> -->
       </div>
 
       <div class="row gx-2 grid">
