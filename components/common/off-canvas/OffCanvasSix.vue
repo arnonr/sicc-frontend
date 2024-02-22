@@ -80,6 +80,11 @@
                 <hr />
                 <li class="text-secondary">งานข้อมูลพื้นฐาน</li>
                 <li>
+                  <nuxt-link href="/admin/user" @click="closeOffcanvas"
+                    >- ผู้ใช้งาน</nuxt-link
+                  >
+                </li>
+                <li>
                   <nuxt-link href="/admin/about-us" @click="closeOffcanvas"
                     >- เกี่ยวกับเรา</nuxt-link
                   >
