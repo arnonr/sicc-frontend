@@ -242,6 +242,8 @@ export default {
             "italic",
             "underline",
             "inlineClass",
+            "subscript",
+            "superscript",
             "|",
             "paragraphFormat",
             "align",
@@ -270,7 +272,7 @@ export default {
           // Change buttons for XS screen.
           toolbarButtonsXS: [
             ["undo", "redo"],
-            ["bold", "italic", "underline"],
+            ["bold", "italic", "underline", "subscript", "superscript"],
           ],
           placeholderText: "",
           attribution: false,
