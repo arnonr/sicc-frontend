@@ -93,7 +93,12 @@
                               >
                                 <h4 class="text-color-grey">
                                   {{
-                                    ad.prefix + ad.firstname + " " + ad.surname
+                                    useCookie("lang").value == "th"
+                                      ? ad.prefix +
+                                        ad.firstname +
+                                        " " +
+                                        ad.surname
+                                      : ""
                                   }}
                                 </h4>
                               </div>
@@ -188,7 +193,10 @@ watch(
 
 onMounted(() => {
   if (departments.value.length != 0) {
+
+    console.log(items.value)
     departments.value = departments.value.map((it) => {
+
       it.administrators = items.value.filter((x) => {
         return x.department_id == it.id;
       });

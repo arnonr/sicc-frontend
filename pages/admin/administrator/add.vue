@@ -126,7 +126,7 @@
 
               <div class="form-group row mt-10">
                 <label for="team-file" class="col-sm-3 col-form-label"
-                  ><span class="text-danger">*</span>รูปภาพ :
+                  ><span class="text-danger">*</span>รูปภาพ 320x250 pixels :
                 </label>
                 <div class="col-sm-9">
                   <input
