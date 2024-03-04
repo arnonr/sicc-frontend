@@ -12,7 +12,7 @@ export default {
           id: 2,
           title: "Service",
           hasDropdown: false,
-          link: "/news",
+          link: "/equipment-and-rate",
         },
         {
           id: 3,
