@@ -7,11 +7,11 @@
             <div class="breadcrumb__list">
               <span> ผู้ดูแลระบบ </span>
               <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
-              <span>
-                <NuxtLink href="/admin/about-us"> รายการเกี่ยวกับเรา </NuxtLink>
-              </span>
+              <NuxtLink to="/admin/direction">
+                <span> เนื้อหาอื่น ๆ </span></NuxtLink
+              >
               <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
-              <span> แก้ไขข้อมูล </span>
+              <span> เพิ่มข้อมูล </span>
             </div>
           </div>
         </div>
@@ -23,7 +23,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h4>แบบฟอร์มแก้ไขข้อมูลเกี่ยวกับเรา</h4>
+          <h4>แบบฟอร์มเพิ่มข้อมูลเนื้อหาอื่น ๆ </h4>
         </div>
 
         <div class="mt-30 pl-10 pt-15 pb-10 bg-grey">
@@ -36,6 +36,7 @@
         <div class="col-12">
           <div class="card" style="border: none">
             <div class="card-body">
+
               <div class="form-group row mt-10">
                 <label for="staticEmail" class="col-sm-3 col-form-label"
                   ><span class="text-danger">*</span>หัวข้อ :
@@ -52,7 +53,7 @@
 
               <div class="form-group row mt-10">
                 <label for="staticEmail" class="col-sm-3 col-form-label"
-                  ><span class="text-danger">*</span>รายละอียด :
+                  ><span class="text-danger">*</span>รายละเอียด :
                 </label>
                 <div class="col-sm-9">
                   <client-only>
@@ -66,6 +67,8 @@
                   </client-only>
                 </div>
               </div>
+
+
             </div>
           </div>
         </div>
@@ -142,7 +145,6 @@ dayjs.extend(buddhistEra);
 
 // Variable
 const runtimeConfig = useRuntimeConfig();
-const route = useRoute();
 const router = useRouter();
 
 const item = ref({
@@ -151,66 +153,46 @@ const item = ref({
   detail_th: "",
   detail_en: "",
 });
-const file = ref(null);
 
-const selectOptions = ref({
-  publishes: booking_data.data().publishes,
-});
 
 let config = {};
-
-const initFroala = () => {
-  config["detail_th"] = booking_data.data().froala_config();
-  config["detail_th"]["events"] = {
-    keyup: function (inputEvent) {
-      item.value.detail_th = this.html.get();
-    },
-    click: function (clickEvent) {
-      item.value.detail_th = this.html.get();
-    },
-    "commands.after": function (cmd, param1, param2) {
-      item.value.detail_th = this.html.get();
-    },
-    "paste.after": function (pasteEvent) {
-      item.value.detail_th = this.html.get();
-    },
-    initialized: function () {
-      this.html.insert(item.value.detail_th);
-    },
-  };
-
-  config["detail_en"] = booking_data.data().froala_config();
-  config["detail_en"]["events"] = {
-    keyup: function (inputEvent) {
-      item.value.detail_en = this.html.get();
-    },
-    click: function (clickEvent) {
-      item.value.detail_en = this.html.get();
-    },
-    "commands.after": function (cmd, param1, param2) {
-      item.value.detail_en = this.html.get();
-    },
-    "paste.after": function (pasteEvent) {
-      item.value.detail_en = this.html.get();
-    },
-    initialized: function () {
-      this.html.insert(item.value.detail_en);
-    },
-  };
+config["detail_th"] = booking_data.data().froala_config();
+config["detail_th"]["events"] = {
+  keyup: function (inputEvent) {
+    item.value.detail_th = this.html.get();
+  },
+  click: function (clickEvent) {
+    item.value.detail_th = this.html.get();
+  },
+  "commands.after": function (cmd, param1, param2) {
+    item.value.detail_th = this.html.get();
+  },
+  "paste.after": function (pasteEvent) {
+    item.value.detail_th = this.html.get();
+  },
+  initialized: function () {
+    this.html.insert(item.value.detail_th);
+  },
 };
 
-// Function Fetch
-
-const { data: res } = await useFetch(
-  `${runtimeConfig.public.apiBase}/about/${route.params.id}`,
-  {
-    server: true,
-  }
-);
-
-item.value = res.value.data;
-
-initFroala();
+config["detail_en"] = booking_data.data().froala_config();
+config["detail_en"]["events"] = {
+  keyup: function (inputEvent) {
+    item.value.detail_en = this.html.get();
+  },
+  click: function (clickEvent) {
+    item.value.detail_en = this.html.get();
+  },
+  "commands.after": function (cmd, param1, param2) {
+    item.value.detail_en = this.html.get();
+  },
+  "paste.after": function (pasteEvent) {
+    item.value.detail_en = this.html.get();
+  },
+  initialized: function () {
+    this.html.insert(item.value.detail_en);
+  },
+};
 
 // Event
 const onSubmit = async () => {
@@ -225,14 +207,15 @@ const onSubmit = async () => {
   }
 
   let type_object = {
-    text_success: "แก้ไขรายการเสร็จสิ้น",
-    method: "put",
-    url: runtimeConfig.public.apiBase + "/about/" + item.value.id,
+    text_success: "เพิ่มรายการเสร็จสิ้น",
+    method: "post",
+    url: runtimeConfig.public.apiBase + "/direction/",
   };
 
   let data = {
     ...item.value,
     is_publish: 1,
+    created_contact: dayjs().format("YYYY-MM-DD"),
   };
 
   var form_data = new FormData();
@@ -247,7 +230,7 @@ const onSubmit = async () => {
     .then((res) => {
       if (res.msg == "success") {
         useToast(type_object.text_success, "success");
-        router.push({ path: "/admin/about-us/" + res.id });
+        router.push({ path: "/admin/direction/" + res.id });
       } else {
         throw new Error("ERROR");
       }
@@ -255,5 +238,6 @@ const onSubmit = async () => {
     .catch((error) => error.data);
 };
 
-onMounted(() => {});
+onMounted(() => {
+});
 </script>

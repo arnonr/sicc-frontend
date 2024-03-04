@@ -148,13 +148,27 @@
                   >- จัดการประเภทข่าว</nuxt-link
                 >
               </li>
+
+              
+              <li>
+                <nuxt-link href="/admin/direction" @click="closeOffcanvas"
+                  >- จัดการเนื้อหาอื่น ๆ</nuxt-link
+                >
+              </li>
+
               <hr />
               <li class="text-secondary">งานข้อมูลพื้นฐาน</li>
+              <li>
+                <nuxt-link href="/admin/user" @click="closeOffcanvas"
+                  >- ผู้ใช้งาน</nuxt-link
+                >
+              </li>
               <li>
                 <nuxt-link href="/admin/about-us" @click="closeOffcanvas"
                   >- เกี่ยวกับเรา</nuxt-link
                 >
               </li>
+              
               <li>
                 <nuxt-link href="/admin/administrator" @click="closeOffcanvas"
                   >- บุคลากร</nuxt-link

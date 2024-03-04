@@ -7,13 +7,9 @@
             <div class="breadcrumb__list">
               <span> ผู้ดูแลระบบ </span>
               <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
-              <span> เครื่องมือวิทยาศาสตร์ </span>
-              <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
               <span>
                 <NuxtLink href="/admin/equipment"> รายการเครื่องมือ</NuxtLink>
               </span>
-              <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
-              <span> {{ item.title }} </span>
             </div>
           </div>
         </div>

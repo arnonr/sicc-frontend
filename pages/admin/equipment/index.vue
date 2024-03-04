@@ -7,8 +7,6 @@
             <div class="breadcrumb__list">
               <span> ผู้ดูแลระบบ </span>
               <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
-              <span> เครื่องมือวิทยาศาสตร์ </span>
-              <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
               <span>รายการเครื่องมือ</span>
             </div>
           </div>
@@ -78,7 +76,7 @@
           class="btn btn-warning"
           @click="
             () => {
-             $router.push({ path: '/admin/equipment/add' });
+              $router.push({ path: '/admin/equipment/add' });
             }
           "
         >
@@ -140,6 +138,13 @@
                     >
                       <i class="fa-regular fa-edit"></i>
                     </NuxtLink>
+                    <a
+                      :href="`../equipment-and-rate/${it.id}`"
+                      class="btn btn-primary text-uppercase ml-10"
+                      target="_blank"
+                    >
+                      <i class="fa-regular fa-eye"></i>
+                    </a>
                   </td>
                 </tr>
               </tbody>

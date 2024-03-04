@@ -7,9 +7,9 @@
             <div class="breadcrumb__list">
               <span> ผู้ดูแลระบบ </span>
               <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
-              <span> ระบบประชาสัมพันธ์ </span>
+              <NuxtLink href="/admin/contact-us/1"><span> ติดต่อเรา </span></NuxtLink>
               <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
-              <span> ติดต่อเรา </span>
+              <span> แก้ไขข้อมูล </span>
             </div>
           </div>
         </div>

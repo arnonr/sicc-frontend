@@ -7,9 +7,11 @@
             <div class="breadcrumb__list">
               <span> ผู้ดูแลระบบ </span>
               <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
-              <span> เครื่องมือวิทยาศาสตร์ </span>
+              <span>
+                <NuxtLink href="/admin/equipment"> รายการเครื่องมือ </NuxtLink>
+              </span>
               <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
-              <span>รายการเครื่องมือ</span>
+              <span> แก้ไขข้อมูล </span>
             </div>
           </div>
         </div>

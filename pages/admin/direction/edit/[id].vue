@@ -7,9 +7,11 @@
             <div class="breadcrumb__list">
               <span> ผู้ดูแลระบบ </span>
               <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
-              <span> ระบบประชาสัมพันธ์ </span>
+              <NuxtLink to="/admin/direction">
+                <span> เนื้อหาอื่น ๆ </span></NuxtLink
+              >
               <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
-              <span> Direction </span>
+              <span> แก้ไขข้อมูล </span>
             </div>
           </div>
         </div>
@@ -21,7 +23,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h4>แบบฟอร์มแก้ไข Direction</h4>
+          <h4>แบบฟอร์มแก้ไขเนื้อหาอื่น ๆ</h4>
         </div>
 
         <div class="mt-30 pl-10 pt-15 pb-10 bg-grey">
@@ -198,9 +200,8 @@ const initFroala = () => {
 };
 
 // Function Fetch
-
 const { data: res } = await useFetch(
-  `${runtimeConfig.public.apiBase}/direction/1`,
+  `${runtimeConfig.public.apiBase}/direction/${route.params.id}`,
   {
     server: true,
   }

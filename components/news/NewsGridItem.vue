@@ -71,7 +71,7 @@ export default {
 .blog__grid-item .blog__content-10-top {
   padding: 1em;
   padding-top: 2em;
-  min-height: 150px;
+  min-height: 220px;
 }
 
 .blog__content-10-bottom {

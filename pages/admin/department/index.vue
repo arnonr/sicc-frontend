@@ -7,8 +7,6 @@
             <div class="breadcrumb__list">
               <span> ผู้ดูแลระบบ </span>
               <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
-              <span> ระบบประชาสัมพันธ์ </span>
-              <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
               <span> รายการฝ่ายงาน </span>
             </div>
           </div>

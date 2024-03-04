@@ -7,10 +7,6 @@
             <div class="breadcrumb__list">
               <span> ผู้ดูแลระบบ </span>
               <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
-              <span> ระบบประชาสัมพันธ์ </span>
-              <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
-              <span> จัดการข่าว </span>
-              <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
               <span> รายการข่าว </span>
             </div>
           </div>
@@ -138,7 +134,7 @@
                       }}</span
                     >
                   </th>
-                  <td class="text-center">
+                  <td class="text-center" style="min-width: 8rem">
                     <NuxtLink
                       :to="{
                         name: 'admin-news-id',
@@ -148,6 +144,13 @@
                     >
                       <i class="fa-regular fa-edit"></i>
                     </NuxtLink>
+                    <a
+                      :href="`../news/${it.id}`"
+                      class="btn btn-primary text-uppercase ml-10"
+                      target="_blank"
+                    >
+                      <i class="fa-regular fa-eye"></i>
+                    </a>
                   </td>
                 </tr>
               </tbody>

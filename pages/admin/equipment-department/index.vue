@@ -7,8 +7,6 @@
             <div class="breadcrumb__list">
               <span> ผู้ดูแลระบบ </span>
               <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
-              <span> เครื่องมือวิทยาศาสตร์ </span>
-              <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
               <span>รายการภาควิชา</span>
             </div>
           </div>

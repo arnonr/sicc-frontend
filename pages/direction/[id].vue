@@ -4,6 +4,10 @@
       <div class="row">
         <div class="col-xxl-12" v-if="item != null">
           <div class="breadcrumb__content p-relative z-index-1">
+            <!-- <h4 class="breadcrumb__title">
+                {{ item.title }}
+              </h4> -->
+
             <div class="breadcrumb__list">
               <span>
                 <NuxtLink
@@ -38,7 +42,7 @@
                   <h2>{{ item.title }}</h2>
                   <h2 style="color: rgb(255, 203, 5)">
                     {{ $t("Scientific Instrument") }} <br />
-                    {{ $t("and High Performance Computing Center") }}
+                    {{ $t("and High Performance Computing Center") }} 
                   </h2>
                 </div>
               </div>
@@ -76,11 +80,14 @@ const route = useRoute();
 const item = ref(null);
 
 const { data: res } = await useAsyncData("direction", async () => {
-  let data = await $fetch(`${runtimeConfig.public.apiBase}/direction/2`, {
-    params: {
-      lang: useCookie("lang").value,
-    },
-  });
+  let data = await $fetch(
+    `${runtimeConfig.public.apiBase}/direction/${route.params.id}`,
+    {
+      params: {
+        lang: useCookie("lang").value,
+      },
+    }
+  );
   return data;
 });
 item.value = res.value.data;
@@ -97,6 +104,7 @@ useHead({
 definePageMeta({
   middleware: "auth",
 });
+
 </script>
 
 <style scoped>

@@ -7,13 +7,9 @@
             <div class="breadcrumb__list">
               <span> ผู้ดูแลระบบ </span>
               <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
-              <span> ระบบประชาสัมพันธ์ </span>
-              <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
               <span>
                 <NuxtLink href="/admin/about-us"> รายการเกี่ยวกับเรา </NuxtLink>
               </span>
-              <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
-              <span> {{ item.title_th }} </span>
             </div>
           </div>
         </div>

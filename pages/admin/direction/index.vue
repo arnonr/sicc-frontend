@@ -7,7 +7,7 @@
             <div class="breadcrumb__list">
               <span> ผู้ดูแลระบบ </span>
               <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
-              <span> รายการผู้ใช้งาน </span>
+              <span> เนื้อหาอื่น ๆ </span>
             </div>
           </div>
         </div>
@@ -28,70 +28,21 @@
         <div class="col-12 col-lg-4">
           <input
             class="form-control"
-            v-model="search.firstname"
-            name="firstname"
+            v-model="search.title_th"
+            name="title_th"
             type="text"
-            placeholder="ชื่อ"
+            placeholder="หัวข้อ (TH)"
           />
         </div>
 
         <div class="col-12 col-lg-4">
           <input
             class="form-control"
-            v-model="search.surname"
-            name="surname"
+            v-model="search.title_en"
+            name="title_en"
             type="text"
-            placeholder="นามสกุล"
+            placeholder="หัวข้อ (EN)"
           />
-        </div>
-
-        <div class="col-12 col-lg-4">
-          <input
-            class="form-control"
-            v-model="search.organization"
-            name="organization"
-            type="text"
-            placeholder="หน่วยงาน"
-          />
-        </div>
-
-        <div class="col-12 col-lg-4">
-          <v-select
-            label="name_th"
-            placeholder="ประเภทสมาชิก"
-            :options="selectOptions.member_statuses"
-            id="slt-member-status"
-            v-model="search.member_status"
-            class="form-control v-select-no-border"
-            :clearable="true"
-          ></v-select>
-        </div>
-
-        <div class="col-12 col-lg-4">
-          <v-select
-            label="name"
-            placeholder="กลุ่มผู้ใช้งาน"
-            :options="[
-              { id: 1, value: 1, name: 'ADMIN' },
-              { id: 2, value: 2, name: 'USER' },
-            ]"
-            id="slt-group_id"
-            v-model="search.group_id"
-            class="form-control v-select-no-border"
-            :clearable="true"
-          ></v-select>
-        </div>
-
-        <div class="col-12 col-lg-4">
-          <v-select
-            label="name_th"
-            placeholder="สถานะ"
-            :options="selectOptions.user_statuses"
-            id="slt-group_id"
-            v-model="search.status"
-            class="form-control v-select-no-border"
-            :clearable="true"
-          ></v-select>
         </div>
       </div>
     </div>
@@ -102,23 +53,23 @@
       <div class="mt-10 mb-30 pl-10 pt-15 pb-10 bg-grey">
         <h4>
           <i class="fa-regular fa-news"></i>
-          <span class="ml-10">รายการผู้ใช้งาน</span>
+          <span class="ml-10">รายการเนื้อหาอื่น ๆ</span>
         </h4>
       </div>
-      <!-- <div class="mb-30">
+      <div class="mb-30">
         <button
           type="button"
           class="btn btn-warning"
           @click="
             () => {
-              router.push({ path: '/admin/user/add' });
+              router.push({ path: '/admin/direction/add' });
             }
           "
         >
           <i class="fa-regular fa-plus"></i>
           ADD
         </button>
-      </div> -->
+      </div>
 
       <div class="row gx-2 grid">
         <div class="col-12">
@@ -126,53 +77,34 @@
             <table class="table table-bordered table-striped table-admin">
               <thead>
                 <tr>
-                  <th class="text-center">ชื่อ</th>
-                  <th class="text-center">นามสกุล</th>
-                  <th class="text-center">email</th>
-                  <th class="text-center">หน่วยงาน</th>
-                  <th class="text-center">ประเภทสมาชิก</th>
-                  <th class="text-center">กลุ่มผู้ใช้งาน</th>
-                  <th class="text-center">สถานะ</th>
+                  <th class="text-center">ชื่อ (TH)</th>
+                  <th class="text-center">ชื่อ (EN)</th>
                   <th class="text-center">จัดการ</th>
                 </tr>
               </thead>
               <tbody v-if="items.length != 0">
                 <tr v-for="(it, idx) in items" :key="idx">
-                  <td>{{ it.firstname }}</td>
-                  <td>{{ it.surname }}</td>
-                  <td>{{ it.user.email }}</td>
-                  <td>{{ it.organization }}</td>
-                  <td class="text-center">
-                    {{
-                      selectOptions.member_statuses[it.member_status - 1]
-                        .name_th
-                    }}
-                  </td>
-                  <td class="text-center">
-                    {{ it.user.group_id == 1 ? "ADMIN" : "USER" }}
-                  </td>
-                  <td class="text-center">
-                    <span
-                      v-if="it.user.status != null"
-                      :class="
-                        'badge rounded-pill bg-' +
-                        selectOptions.user_statuses[it.user.status].color
-                      "
-                      >{{
-                        selectOptions.user_statuses[it.user.status].name_th
-                      }}</span
-                    >
+                  <td>{{ it.title_th }}</td>
+                  <td>
+                    {{ it.title_en }}
                   </td>
                   <td class="text-center">
                     <NuxtLink
                       :to="{
-                        name: 'admin-user-id',
+                        name: 'admin-direction-id',
                         params: { id: it.id },
                       }"
                       class="btn btn-warning text-uppercase"
                     >
                       <i class="fa-regular fa-edit"></i>
                     </NuxtLink>
+                    <a
+                      :href="`../direction/${it.id}`"
+                      class="btn btn-primary text-uppercase ml-10"
+                      target="_blank"
+                    >
+                      <i class="fa-regular fa-eye"></i>
+                    </a>
                   </td>
                 </tr>
               </tbody>
@@ -213,6 +145,7 @@ dayjs.extend(buddhistEra);
 // const route = useRoute();
 // const router = useRouter();
 const runtimeConfig = useRuntimeConfig();
+const router = useRouter();
 const items = ref([]);
 const perPage = ref(20);
 const currentPage = ref(1);
@@ -227,27 +160,18 @@ const selectOptions = ref({
     { title: "60", value: 60 },
   ],
   publishes: booking_data.data().publishes,
-  member_statuses: booking_data.data().member_statuses,
-  user_statuses: booking_data.data().user_statuses,
 });
 
 // Function Fetch
 const fetchItems = async () => {
   let params = {
     ...search.value,
-    member_status:
-      search.value.member_status == null
-        ? undefined
-        : search.value.member_status.value,
-    status: search.value.status == null ? undefined : search.value.status.value,
-    group_id:
-      search.value.group_id == null ? undefined : search.value.group_id.value,
     perPage: perPage.value,
     currentPage: currentPage.value,
     lang: "th",
   };
 
-  let data = await $fetch(`${runtimeConfig.public.apiBase}/profile`, {
+  let data = await $fetch(`${runtimeConfig.public.apiBase}/direction`, {
     params: params,
   }).catch((error) => error.data);
 
@@ -275,7 +199,7 @@ onMounted(() => {
 });
 
 useHead({
-  title: "รายการผู้ใช้งาน",
+  title: "รายการเนื้อหาอื่น ๆ",
 });
 
 definePageMeta({
