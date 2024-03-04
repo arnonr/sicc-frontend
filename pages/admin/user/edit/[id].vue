@@ -168,6 +168,13 @@
                             label="name"
                             placeholder="กลุ่มผู้ใช้งาน"
                             :options="selectOptions.groups"
+                            :selectable="
+                              (it) =>
+                                useCookie('user').value.group_id == 3 &&
+                                it.id == 1
+                                  ? it.disabled
+                                  : true
+                            "
                             id="slt-group-id"
                             v-model="item.group_id"
                             class="form-control v-select-no-border"
@@ -271,8 +278,16 @@ const selectOptions = ref({
   groups: [
     { id: 1, value: 1, name: "ADMIN" },
     { id: 2, value: 2, name: "USER" },
+    { id: 3, value: 3, name: "STAFF" },
   ],
 });
+
+// if (useCookie("user").value.group_id == 3) {
+//   selectOptions.value.groups = [
+//     { id: 2, value: 2, name: "USER" },
+//     { id: 3, value: 3, name: "STAFF" },
+//   ];
+// }
 
 const format = (date) => {
   const day = dayjs(date).locale("th").format("DD");

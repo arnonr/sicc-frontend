@@ -67,6 +67,7 @@
 
                       <button
                         class="btn btn-danger warning text-uppercase ml-5"
+                        v-if="useCookie('user').value && useCookie('user').value.group_id == 1"
                         @click="onConfirmDelete(booking.id)"
                       >
                         <i class="fa-regular fa-trash"></i>

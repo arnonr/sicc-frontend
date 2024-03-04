@@ -21,7 +21,7 @@
 
   <div class="admin-wrapper">
     <button
-      v-if="useCookie('user').value && useCookie('user').value.group_id == 1"
+      v-if="useCookie('user').value && useCookie('user').value.group_id == 1 || useCookie('user').value && useCookie('user').value.group_id == 3"
       id="back_to_top"
       type="button"
       class="admin-btn"

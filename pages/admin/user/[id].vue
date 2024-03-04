@@ -38,9 +38,15 @@
                             name: 'admin-user-edit-id',
                             params: { id: item.id },
                           }"
+                          v-if="
+                            useCookie('user').value.group_id == 1 ||
+                            item.user.group_id == null ||
+                            (useCookie('user').value.group_id == 3 &&
+                              item.user.group_id != 1)
+                          "
                           class="btn btn-warning"
-                          >Edit</NuxtLink
-                        >
+                          >Edit
+                        </NuxtLink>
                       </div>
                     </div>
 
@@ -73,7 +79,11 @@
                         <div class="col-12">
                           <span class="fw-bold">กลุ่มผู้ใช้งาน : </span>
                           <span>{{
-                            item.user.group_id == 1 ? "ADMIN" : "USER"
+                            item.user.group_id == 1
+                              ? "ADMIN"
+                              : item.user.group_id == 3
+                              ? "STAFF"
+                              : "USER"
                           }}</span>
                           <hr />
                         </div>

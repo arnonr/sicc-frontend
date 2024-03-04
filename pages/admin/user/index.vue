@@ -74,6 +74,7 @@
             :options="[
               { id: 1, value: 1, name: 'ADMIN' },
               { id: 2, value: 2, name: 'USER' },
+              { id: 3, value: 3, name: 'STAFF' },
             ]"
             id="slt-group_id"
             v-model="search.group_id"
@@ -149,7 +150,7 @@
                     }}
                   </td>
                   <td class="text-center">
-                    {{ it.user.group_id == 1 ? "ADMIN" : "USER" }}
+                    {{ it.user.group_id == 1 ? "ADMIN"  : it.user.group_id == 3 ? "STAFF" : "USER" }}
                   </td>
                   <td class="text-center">
                     <span

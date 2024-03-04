@@ -184,7 +184,7 @@ const { data: res } = await useAsyncData("booking", async () => {
     lang: useCookie("lang").value,
   };
 
-  if (useCookie("user").value.group_id != 1) {
+  if (useCookie("user").value.group_id != 1 || useCookie("user").value.group_id != 3) {
     params["user_id"] = useCookie("user").value.id;
   }
 

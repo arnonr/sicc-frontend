@@ -113,6 +113,7 @@
 
                     <button
                       class="btn btn-danger ml-5"
+                      v-if="useCookie('user').value && useCookie('user').value.group_id == 1"
                       @click="onConfirmDelete(it.id)"
                     >
                       <i class="fa-regular fa-trash"></i>

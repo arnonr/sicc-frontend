@@ -37,6 +37,7 @@
                           class="btn btn-warning"
                           >Edit</NuxtLink
                         >
+                        <!-- v-if="useCookie('user').value && useCookie('user').value.group_id == 1" -->
                       </div>
                     </div>
 
