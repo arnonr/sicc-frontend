@@ -115,7 +115,10 @@
 
                     <button
                       class="btn btn-danger ml-5"
-                      v-if="useCookie('user').value && useCookie('user').value.group_id == 1"
+                      v-if="
+                        useCookie('user').value &&
+                        useCookie('user').value.group_id == 1
+                      "
                       @click="onConfirmDelete(it.id)"
                     >
                       <i class="fa-regular fa-trash"></i>
@@ -285,12 +288,9 @@ const fetchItems = async () => {
     lang: "th",
   };
 
-  let data = await $fetch(
-    `${runtimeConfig.public.apiBase}/department`,
-    {
-      params: params,
-    }
-  ).catch((error) => error.data);
+  let data = await $fetch(`${runtimeConfig.public.apiBase}/department`, {
+    params: params,
+  }).catch((error) => error.data);
 
   items.value = data.data;
   totalPage.value = data.totalPage;
