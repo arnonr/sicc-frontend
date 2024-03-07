@@ -7,7 +7,7 @@
             <div class="breadcrumb__list">
               <span> ผู้ดูแลระบบ </span>
               <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
-              <span> รายการจอง </span>
+              <span> จัดการรายการจอง </span>
             </div>
           </div>
         </div>
@@ -144,7 +144,7 @@
       <div class="mt-10 mb-30 pl-10 pt-15 pb-10 bg-grey">
         <h4>
           <i class="fa-regular fa-news"></i>
-          <span class="ml-10">รายการจอง</span>
+          <span class="ml-10">จัดการ รายการจอง</span>
         </h4>
       </div>
       <div class="mb-30">
@@ -397,7 +397,7 @@ onMounted(() => {
 });
 
 useHead({
-  title: "รายการจอง",
+  title: "จัดการ รายการจอง",
 });
 
 definePageMeta({

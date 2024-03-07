@@ -413,7 +413,6 @@
                                     </div>
                                   </div>
 
-
                                   <!--  -->
                                   <div class="form-group row mt-10">
                                     <label
@@ -700,7 +699,12 @@
                                 v-if="currentStep !== 0"
                                 type="button"
                                 @click="prevStep"
-                                class="tp-btn-border-brown text-uppercase mr-15"
+                                :disabled="finish_button_disabled"
+                                :class="`${
+                                  finish_button_disabled == true
+                                    ? 'tp-btn-border-grey'
+                                    : 'tp-btn-border-brown'
+                                } text-uppercase mr-15`"
                               >
                                 Previous
                               </button>
@@ -716,7 +720,12 @@
                                 v-if="currentStep === stepLength"
                                 type="submit"
                                 @click="onConfirmSubmit()"
-                                class="tp-btn-border-yellow text-uppercase mr-15"
+                                :disabled="finish_button_disabled"
+                                :class="`${
+                                  finish_button_disabled == true
+                                    ? 'tp-btn-border-grey'
+                                    : 'tp-btn-border-yellow'
+                                } text-uppercase mr-15`"
                               >
                                 Finish
                               </button>
@@ -765,6 +774,7 @@ const stepLength = ref(2);
 
 // Equipment
 const item = ref(null);
+const finish_button_disabled = ref(false);
 
 // Equipment_booking
 const address_all = ref([]);
@@ -796,7 +806,7 @@ const booking = ref({
   status_id: 1,
   is_publish: 1,
   address_all: "",
-  district_code: ""
+  district_code: "",
 });
 const equipmentMethod = ref([]);
 const profile = ref({});
@@ -881,7 +891,7 @@ const { data: resEquipmentMethod } = await useAsyncData(
           is_publish: 1,
           equipment_id: route.params.id,
           lang: useCookie("lang").value,
-          perPage: 100
+          perPage: 100,
         },
       }
     );
@@ -1031,6 +1041,7 @@ const onConfirmSubmit = async () => {
 };
 
 const onSubmit = async () => {
+  finish_button_disabled.value = true;
   let data = {
     ...booking.value,
     equipment_id: item.value.id,
@@ -1052,14 +1063,19 @@ const onSubmit = async () => {
       if (res.msg == "success") {
         localStorage.setItem("added", 1);
         console.log("Book Success");
+        finish_button_disabled.value = false;
         router.push({
           path: "/booking",
         });
       } else {
         console.log("error");
+        finish_button_disabled.value = false;
       }
     })
-    .catch((error) => error.data);
+    .catch((error) => {
+      error.data;
+      finish_button_disabled.value = false;
+    });
 };
 
 const prevStep = () => {
@@ -1103,7 +1119,7 @@ const nextStep = async (step) => {
       return;
     }
 
-    console.log(booking.value.equipment_booking_method)
+    console.log(booking.value.equipment_booking_method);
     if (booking.value.equipment_booking_method.length == 0) {
       useToast("โปรดเลือกรายการวิเคราะห์", "error");
       checkSummary.value = false;
@@ -1111,7 +1127,13 @@ const nextStep = async (step) => {
     }
 
     let checkQuantity = booking.value.equipment_booking_method.find((x) => {
-      return x.quantity == 0 || x.quantity == null || x.quantity == "" || x.quantity == undefined || isNaN(x.quantity)
+      return (
+        x.quantity == 0 ||
+        x.quantity == null ||
+        x.quantity == "" ||
+        x.quantity == undefined ||
+        isNaN(x.quantity)
+      );
     });
 
     if (checkQuantity) {

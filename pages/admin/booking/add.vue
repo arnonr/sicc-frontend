@@ -616,7 +616,12 @@
                                 v-if="currentStep !== 0"
                                 type="button"
                                 @click="prevStep"
-                                class="tp-btn-border-brown text-uppercase mr-15"
+                                :disabled="finish_button_disabled"
+                                :class="`${
+                                  finish_button_disabled == true
+                                    ? 'tp-btn-border-grey'
+                                    : 'tp-btn-border-brown'
+                                } text-uppercase mr-15`"
                               >
                                 Previous
                               </button>
@@ -632,7 +637,12 @@
                                 v-if="currentStep === stepLength"
                                 type="submit"
                                 @click="onConfirmSubmit()"
-                                class="tp-btn-border-yellow text-uppercase mr-15"
+                                :disabled="finish_button_disabled"
+                                :class="`${
+                                  finish_button_disabled == true
+                                    ? 'tp-btn-border-grey'
+                                    : 'tp-btn-border-yellow'
+                                } text-uppercase mr-15`"
                               >
                                 Finish
                               </button>
@@ -680,6 +690,7 @@ const stepLength = ref(2);
 
 // Equipment
 const item = ref(null);
+const finish_button_disabled = ref(false);
 
 // Equipment_booking
 const booking = ref({
@@ -773,7 +784,7 @@ const { data: resEquipmentMethod } = await useAsyncData(
           is_publish: 1,
           equipment_id: 1,
           lang: useCookie("lang").value,
-          perPage: 100
+          perPage: 100,
         },
       }
     );
@@ -924,6 +935,7 @@ const onConfirmSubmit = async () => {
 };
 
 const onSubmit = async () => {
+  finish_button_disabled.value = true;
   let data = {
     ...booking.value,
     equipment_id: item.value.id,
@@ -945,14 +957,19 @@ const onSubmit = async () => {
       if (res.msg == "success") {
         localStorage.setItem("added", 1);
         console.log("Book Success");
+        finish_button_disabled.value = false;
         router.push({
           path: "/admin/booking",
         });
       } else {
         console.log("error");
+        finish_button_disabled.value = false;
       }
     })
-    .catch((error) => error.data);
+    .catch((error) => {
+      console.log(error.data);
+      finish_button_disabled.value = false;
+    });
 };
 
 const prevStep = () => {

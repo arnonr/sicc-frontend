@@ -73,6 +73,7 @@ const { data: resNewsType } = await useAsyncData("newsType", async () => {
     params: {
       is_publish: 1,
       lang: useCookie("lang").value,
+      orderBy: 'created_at'
     },
   });
 

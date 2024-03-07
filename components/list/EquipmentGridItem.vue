@@ -44,7 +44,7 @@
                 {{
                   item.link == "equipment-and-rate/"
                     ? $t("Details")
-                    : $t("Read More")
+                    : item.link == "sample-submission/" ? $t("Reserve"): $t("Read More")
                 }}
                 <i class="fa fa-arrow-right news-link-view"></i>
               </nuxt-link>
