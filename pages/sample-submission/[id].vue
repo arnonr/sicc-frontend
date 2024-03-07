@@ -881,10 +881,10 @@ const { data: resEquipmentMethod } = await useAsyncData(
           is_publish: 1,
           equipment_id: route.params.id,
           lang: useCookie("lang").value,
+          perPage: 100
         },
       }
     );
-
     return data;
   }
 );
@@ -1103,6 +1103,7 @@ const nextStep = async (step) => {
       return;
     }
 
+    console.log(booking.value.equipment_booking_method)
     if (booking.value.equipment_booking_method.length == 0) {
       useToast("โปรดเลือกรายการวิเคราะห์", "error");
       checkSummary.value = false;
@@ -1110,7 +1111,7 @@ const nextStep = async (step) => {
     }
 
     let checkQuantity = booking.value.equipment_booking_method.find((x) => {
-      return x.quantity == 0;
+      return x.quantity == 0 || x.quantity == null || x.quantity == "" || x.quantity == undefined || isNaN(x.quantity)
     });
 
     if (checkQuantity) {

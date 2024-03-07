@@ -773,6 +773,7 @@ const { data: resEquipmentMethod } = await useAsyncData(
           is_publish: 1,
           equipment_id: 1,
           lang: useCookie("lang").value,
+          perPage: 100
         },
       }
     );

@@ -847,6 +847,7 @@ const { data: resEquipmentMethod } = await useAsyncData(
           is_publish: 1,
           equipment_id: res1.value.data.equipment_id,
           lang: useCookie("lang").value,
+          perPage: 100
         },
       }
     );
