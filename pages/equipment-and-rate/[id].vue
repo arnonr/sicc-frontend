@@ -107,7 +107,7 @@
                                     >
                                       <img
                                         :src="ng.equipment_gallery_file"
-                                        style="width: 100%"
+                                        style="width: 100%; max-height: 800px;"
                                       />
                                     </SwiperSlide>
                                   </Swiper>
@@ -127,7 +127,7 @@
                                     >
                                       <img
                                         :src="ng.equipment_gallery_file"
-                                        style="width: 100%; cursor: pointer"
+                                        style="width: 100%;max-height: 300px; cursor: pointer"
                                       />
                                     </SwiperSlide>
                                   </Swiper>

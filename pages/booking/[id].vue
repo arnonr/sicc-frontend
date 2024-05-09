@@ -267,14 +267,14 @@
                                   <hr class="hr-dotted" />
                                 </div>
 
-                                <div class="col-lg-12 mt-10">
+                                <!-- <div class="col-lg-12 mt-10">
                                   <span class="fw-bold text-dark"
                                     >ตำบล/อำเภอ/จังหวัด : </span
                                   ><span
                                     class="text-color-primary fw-bold"
                                   >{{ booking.address_all.label}}</span>
                                   <hr class="hr-dotted" />
-                                </div>
+                                </div> -->
 
                                 <div class="col-lg-12 mt-10">
                                   <span class="fw-bold text-dark"

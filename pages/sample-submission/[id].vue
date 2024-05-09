@@ -396,6 +396,21 @@
 
                                   <hr />
 
+                                  <div class="mb-3 form-check">
+                                    <input
+                                      type="checkbox"
+                                      class="form-check-input"
+                                      id="exampleCheck1"
+                                      v-model="sameAddress"
+                                      @change="checkSameAddress"
+                                    />
+                                    <label
+                                      class="form-check-label"
+                                      for="exampleCheck1"
+                                      >ใช้ที่อยู่เดียวกัน</label
+                                    >
+                                  </div>
+
                                   <div class="form-group row mt-10">
                                     <label
                                       for="staticEmail"
@@ -414,7 +429,7 @@
                                   </div>
 
                                   <!--  -->
-                                  <div class="form-group row mt-10">
+                                  <!-- <div class="form-group row mt-10">
                                     <label
                                       for="ProvinceAmphurTumbol"
                                       class="col-sm-4 col-form-label"
@@ -433,7 +448,7 @@
                                         :clearable="true"
                                       ></v-select>
                                     </div>
-                                  </div>
+                                  </div> -->
 
                                   <div class="form-group row mt-10">
                                     <label
@@ -665,7 +680,7 @@
                                       <hr class="hr-dotted" />
                                     </div>
 
-                                    <div class="col-lg-12 mt-10">
+                                    <!-- <div class="col-lg-12 mt-10">
                                       <span class="fw-bold text-dark"
                                         >ตำบล/จังหวัด/อำเภอ : </span
                                       ><span
@@ -673,7 +688,7 @@
                                         >{{ booking.address_all.label }}</span
                                       >
                                       <hr class="hr-dotted" />
-                                    </div>
+                                    </div> -->
 
                                     <div class="col-lg-12 mt-10">
                                       <span class="fw-bold text-dark"
@@ -1160,7 +1175,9 @@ const nextStep = async (step) => {
       booking.value.phone == "" ||
       booking.value.phone == null ||
       booking.value.email == "" ||
-      booking.value.email == null
+      booking.value.email == null ||
+      booking.value.phone2 == "" ||
+      booking.value.phone2 == null
       // booking.value.invoice_address == "" ||
       // booking.value.invoice_address == null ||
       // booking.value.tax_id == "" ||
@@ -1177,6 +1194,15 @@ const nextStep = async (step) => {
   currentStep.value++;
   // next step function to move to the next step
   formStep.value?.nextTab();
+};
+
+const sameAddress = ref(false);
+const checkSameAddress = () => {
+  if (sameAddress.value == true) {
+    booking.value.invoice_address = booking.value.contact_address;
+  } else {
+    booking.value.invoice_address = "";
+  }
 };
 
 useHead({
