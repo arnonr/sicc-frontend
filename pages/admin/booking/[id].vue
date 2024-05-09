@@ -48,7 +48,7 @@
                         "
                       >
                         <i class="fa-regular fa-edit"></i>
-                        <span class="pl-5">APPROVE</span>
+                        <span class="pl-5">Change Status</span>
                       </button>
 
                       <button

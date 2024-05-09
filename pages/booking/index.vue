@@ -37,6 +37,7 @@
             <table class="table table-bordered table-striped">
               <thead>
                 <tr>
+                  <th class="text-center">รหัส</th>
                   <th class="text-center">รายการ</th>
                   <th class="text-center">วันที่จอง</th>
                   <th class="text-center">ช่วงเวลา</th>
@@ -47,6 +48,7 @@
               </thead>
               <tbody v-if="items.length != 0">
                 <tr v-for="(it, idx) in items" :key="idx">
+                  <td>{{ it.code }}</td>
                   <td>{{ it.equipment.title }}</td>
                   <td class="text-center">
                     {{ it.booking_date_show }}
