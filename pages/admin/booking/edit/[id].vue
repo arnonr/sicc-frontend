@@ -1033,8 +1033,8 @@ const calPrice = () => {
 
 const onConfirmSubmit = async () => {
   Swal.fire({
-    title: "Are you sure?",
-    text: "You won't be able to revert this!",
+    title: "ยืนยันการส่งข้อมูล",
+    text: "หลังจากส่งข้อมูลแล้วไม่สามารถกลับมาแก้ไขได้",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",

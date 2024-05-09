@@ -612,8 +612,8 @@ onMounted(() => {
 // Event
 const onConfirmDelete = async (id) => {
   Swal.fire({
-    title: "Are you sure?",
-    text: "You won't be able to revert this!",
+    title: "ยืนยันการลบข้อมูล",
+    text: "หลังจากลบข้อมูลแล้วไม่สามารถกลับมาแก้ไขได้",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
@@ -643,8 +643,8 @@ const onDelete = async (id) => {
 
 const onMethodConfirmDelete = async (id) => {
   Swal.fire({
-    title: "Are you sure?",
-    text: "You won't be able to revert this!",
+    title: "ยืนยันการลบข้อมูล",
+    text: "หลังจากลบข้อมูลแล้วไม่สามารถกลับมาแก้ไขได้",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
