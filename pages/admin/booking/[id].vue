@@ -67,7 +67,10 @@
 
                       <button
                         class="btn btn-danger warning text-uppercase ml-5"
-                        v-if="useCookie('user').value && useCookie('user').value.group_id == 1"
+                        v-if="
+                          useCookie('user').value &&
+                          useCookie('user').value.group_id == 1
+                        "
                         @click="onConfirmDelete(booking.id)"
                       >
                         <i class="fa-regular fa-trash"></i>
@@ -295,15 +298,188 @@
                                   <hr class="hr-dotted" />
                                 </div> -->
 
-                                <div class="col-lg-12 mt-10">
+                                <div class="col-lg-12 mt-10 mb-20">
                                   <span class="fw-bold text-dark"
                                     >โทรศัพท์ที่สามารถติดต่อได้/Phone : </span
                                   ><span class="text-color-primary fw-bold">{{
                                     booking.phone2
                                   }}</span>
-                                  <hr class="hr-dotted" />
+                                  <!-- <hr class="hr-dotted" /> -->
                                 </div>
 
+                                <div>
+                                  <hr style="border-top: 2px solid #888" />
+                                </div>
+
+                                <div class="col-lg-12 mt-10">
+                                  <div class="d-flex justify-content-between">
+                                    <div>
+                                      <span class="fw-bold text-dark"
+                                        >รายงาน :
+                                      </span>
+                                      <div
+                                        v-for="(rep, idx) in report_res"
+                                        :key="idx"
+                                      >
+                                        <span>ไฟล์ที่ {{ idx + 1 }} : </span>
+                                        <a
+                                          :href="rep.report_file"
+                                          target="_blank"
+                                          class="text-color-primary"
+                                        >
+                                          <!-- {{rep.report_file}} -->
+                                          ดาวน์โหลด
+                                        </a>
+                                      </div>
+                                    </div>
+                                    <button
+                                      class="btn btn-primary float-right"
+                                      @click="
+                                        () => {
+                                          modalReportForm.show();
+                                        }
+                                      "
+                                    >
+                                      Upload File
+                                    </button>
+                                  </div>
+                                  <hr class="hr-dotted" />
+                                  <!--  -->
+                                  <div class="row">
+                                    <div class="col-lg-12 mt-10">
+                                      <span class="fw-bold text-dark"
+                                        >หลักฐานการชำระเงิน :</span
+                                      >
+                                    </div>
+
+                                    <div
+                                      class="col-lg-12 mt-10"
+                                      v-if="
+                                        booking.status_id > 5 &&
+                                        preview_slip_file
+                                      "
+                                    >
+                                      <span class="fw-bold text-dark"
+                                        >วันที่โอนเงิน : </span
+                                      ><span class="text-color-primary fw-bold">
+                                        {{
+                                          dayjs(booking.slip_date)
+                                            .locale("th")
+                                            .format("DD MMM BBBB")
+                                        }}
+                                        {{ booking.slip_time }} น.</span
+                                      >
+                                    </div>
+
+                                    <div
+                                      class="col-lg-12 mt-10"
+                                      v-if="
+                                        booking.status_id > 5 &&
+                                        preview_slip_file
+                                      "
+                                    >
+                                      <span class="fw-bold text-dark"
+                                        >ธนาคาร : </span
+                                      ><span class="text-color-primary fw-bold">
+                                        {{ booking.slip_bank }}</span
+                                      >
+                                    </div>
+
+                                    <div
+                                      class="col-lg-12 mt-10"
+                                      v-if="
+                                        booking.status_id > 5 &&
+                                        preview_slip_file
+                                      "
+                                    >
+                                      <span class="fw-bold text-dark"
+                                        >จำนวนเงิน : </span
+                                      ><span class="text-color-primary fw-bold">
+                                        {{
+                                          parseFloat(
+                                            booking.slip_price
+                                          ).toLocaleString("en-US", {
+                                            minimumFractionDigits: 2,
+                                            maximumFractionDigits: 2,
+                                          })
+                                        }}
+                                        บาท</span
+                                      >
+                                    </div>
+
+                                    <div
+                                      class="col-lg-12 mt-10"
+                                      v-if="
+                                        booking.status_id > 5 &&
+                                        preview_slip_file
+                                      "
+                                    >
+                                      <span class="fw-bold text-dark"
+                                        >ไฟล์ :
+                                      </span>
+
+                                      <a
+                                        :href="preview_slip_file"
+                                        v-if="preview_slip_file"
+                                        target="_blank"
+                                        class="text-color-primary fw-bold"
+                                        >ดาวน์โหลด
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <hr
+                                    class="hr-dotted"
+                                    v-if="booking.status_id == 8"
+                                  />
+                                  <!-- <div class="d-flex justify-content-between">
+                                    <div>
+                                      <span class="fw-bold text-dark"
+                                        >หลักฐานการชำระเงิน :
+                                      </span>
+                                      <span
+                                        v-if="preview_slip_file"
+                                        class="me-5"
+                                        >ธนาคาร : {{ item.slip_bank }}</span
+                                      >
+                                      <a
+                                        :href="preview_slip_file"
+                                        v-if="preview_slip_file"
+                                        target="_blank"
+                                        >ดาวน์โหลด
+                                      </a>
+                                      <span v-else>-</span>
+                                    </div>
+                                  </div> -->
+                                  <hr class="hr-dotted" />
+                                  <div class="d-flex justify-content-between">
+                                    <div>
+                                      <span class="fw-bold text-dark"
+                                        >ใบเสร็จรับเงิน :
+                                      </span>
+
+                                      <a
+                                        :href="preview_invoice_file"
+                                        v-if="preview_invoice_file"
+                                        class="text-color-primary"
+                                        target="_blank"
+                                        >ดาวน์โหลด
+                                      </a>
+                                      <span v-else>-</span>
+                                    </div>
+
+                                    <button
+                                      class="btn btn-primary float-right"
+                                      @click="
+                                        () => {
+                                          modalInvoiceForm.show();
+                                        }
+                                      "
+                                    >
+                                      Upload File
+                                    </button>
+                                  </div>
+                                  <hr class="hr-dotted" />
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -337,7 +513,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="modal-form-label">
-            แบบฟอร์มอนุมัติการจอง
+            แบบฟอร์มเปลี่ยนสถานะการจอง
           </h1>
           <button
             type="button"
@@ -393,6 +569,167 @@
       </div>
     </div>
   </div>
+
+  <!-- Report Form -->
+  <div
+    class="modal fade"
+    id="modal-report-form"
+    tabindex="-1"
+    aria-labelledby="modal-report-form"
+    aria-hidden="true"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modal-form-label">
+            แบบฟอร์มอับโหลดรายงาน
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            @click="fetchReport"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="col-sm-12">
+            <client-only>
+              <dashboard
+                :uppy="uppy"
+                ref="dash"
+                style="width: 100%"
+                :props="{
+                  doneButtonHandler: null,
+                  hideCancelButton: true,
+                  showRemoveButtonAfterComplete: true,
+                }"
+              />
+            </client-only>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+            @click="fetchReport"
+          >
+            Close
+          </button>
+          <!-- <button
+            type="button"
+            class="btn btn-warning"
+            @click="onSubmitReport()"
+          >
+            Submit
+          </button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slip Form -->
+  <div
+    class="modal fade"
+    id="modal-slip-form"
+    tabindex="-1"
+    aria-labelledby="modal-slip-form"
+    aria-hidden="true"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modal-form-label">
+            แบบฟอร์มอับโหลดหลักฐานการชำระเงิน
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            @click="fetchItem"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="col-sm-12">
+            <!--  -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+            @click="fetchReport"
+          >
+            Close
+          </button>
+          <!-- <button
+            type="button"
+            class="btn btn-warning"
+            @click="onSubmitReport()"
+          >
+            Submit
+          </button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slip Invoice -->
+  <div
+    class="modal fade"
+    id="modal-invoice-form"
+    tabindex="-1"
+    aria-labelledby="modal-invoice-form"
+    aria-hidden="true"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modal-form-label">
+            แบบฟอร์มอับโหลดใบเสร็จรับเงิน
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            @click="fetchItem"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="col-sm-12">
+            <label class="col-form-label">อับโหลดไฟล์</label>
+            <input
+              ref="invoice_file"
+              class="form-control"
+              type="file"
+              id="formInvoiceFile"
+              @change="onSubmitInvoice"
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+            @click="fetchItem"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -407,6 +744,11 @@ import Swal from "sweetalert2";
 import "@vuepic/vue-datepicker/dist/main.css";
 import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
+import Uppy from "@uppy/core";
+import { Dashboard } from "@uppy/vue";
+import "@uppy/core/dist/style.css";
+import "@uppy/dashboard/dist/style.css";
+import XHRUpload from "@uppy/xhr-upload";
 
 dayjs.extend(buddhistEra);
 const runtimeConfig = useRuntimeConfig();
@@ -451,12 +793,62 @@ const equipmentMethod = ref([]);
 const checkSummary = ref(false);
 const text_summary_error = ref("");
 let modalForm;
+let modalReportForm;
+let modalSlipForm;
+let modalInvoiceForm;
+
+const invoice_file = ref(null);
+const preview_invoice_file = ref(null);
+const slip_file = ref(null);
+const preview_slip_file = ref(null);
 
 const selectOptions = ref({
   member_statuses: booking_data.data().member_statuses,
   booking_statuses: booking_data.data().booking_statuses,
   period_times: booking_data.data().period_times,
   address_all: address_all,
+});
+
+const r = (Math.random() + 1).toString(36).substring(7);
+
+const uppy = new Uppy({
+  meta: {
+    equipment_booking_id: route.params.id,
+    secret_key: r,
+    id: null,
+    table_name: "equipment_booking",
+  },
+  debug: true,
+  //   restrictions: {
+  //     allowedFileTypes: ["image/*", "video/*"],
+  //   },
+}).use(XHRUpload, {
+  endpoint: `${runtimeConfig.public.apiBase}/froala/uppy-report`,
+  fieldName: "file",
+});
+
+uppy.on("upload-success", (file, response) => {
+  uppy.setFileMeta(file.id, {
+    url: response.body.link,
+    equipment_booking_id: response.body.equipment_booking_id,
+    id: response.body.id,
+  });
+});
+
+uppy.on("file-removed", (file, reason) => {
+  if (file.meta.id != null) {
+    $fetch(`${runtimeConfig.public.apiBase}/report/${file.meta.id}`, {
+      method: "DELETE",
+    })
+      .then((res) => {
+        if (res.msg == "success") {
+          console.log("success");
+        } else {
+          console.log("error");
+        }
+      })
+      .catch((error) => error.data);
+  }
 });
 
 // Function Fetch
@@ -473,10 +865,56 @@ const { data: res1 } = await useAsyncData("booking", async () => {
 });
 
 booking.value = res1.value.data;
+preview_invoice_file.value = res1.value.data.invoice_file;
+preview_slip_file.value = res1.value.data.slip_file;
 
 booking.value.address_all = address_all.value.find((x) => {
   return x.district_code == booking.value.district_code;
 });
+
+const report_res = ref([]);
+const fetchReport = async () => {
+  await $fetch(`${runtimeConfig.public.apiBase}/report`, {
+    params: {
+      is_publish: 1,
+      equipment_booking_id: route.params.id,
+    },
+  })
+    .then(async (res) => {
+      let report = res.data;
+      report_res.value = res.data;
+
+      for (let i = 0; i < report.length; i++) {
+        await fetch(report[i].report_file)
+          .then((response) => response.blob())
+          .then((blob) => {
+            let name = report[i].report_file.split("/");
+            uppy.addFile({
+              name: name[name.length - 1],
+              type: blob.type,
+              data: blob,
+              meta: {
+                relativePath: report[i].report_file,
+                equipment_booking_id: report[i].equipment_booking_id,
+                id: report[i].id,
+                secret_key: report[i].secret_key,
+                isRemote: true,
+              },
+              source: "Local",
+              isRemote: false,
+            });
+          });
+      }
+
+      //
+      uppy.getFiles().forEach((file) => {
+        uppy.setFileState(file.id, {
+          progress: { uploadComplete: true, uploadStarted: true },
+        });
+      });
+    })
+    .catch((error) => error.data);
+};
 
 const { data: res } = await useAsyncData("equipment", async () => {
   let data = await $fetch(
@@ -503,7 +941,7 @@ const { data: resEquipmentMethod } = await useAsyncData(
           is_publish: 1,
           equipment_id: res1.value.data.equipment_id,
           lang: useCookie("lang").value,
-          perPage: 100
+          perPage: 100,
         },
       }
     );
@@ -539,6 +977,15 @@ const onLoadEquipmentBookingMethod = () => {
 
 onMounted(() => {
   modalForm = new bootstrap.Modal(document.getElementById("modal-form"));
+  modalReportForm = new bootstrap.Modal(
+    document.getElementById("modal-report-form")
+  );
+  modalSlipForm = new bootstrap.Modal(
+    document.getElementById("modal-slip-form")
+  );
+  modalInvoiceForm = new bootstrap.Modal(
+    document.getElementById("modal-invoice-form")
+  );
 
   booking.value.equipment_method = [];
   if (booking.value.period_time) {
@@ -572,6 +1019,7 @@ onMounted(() => {
   onLoadEquipmentBookingMethod();
 
   checkSummary.value = true;
+  fetchReport();
 });
 
 const onConfirmDelete = async (id) => {
@@ -608,12 +1056,18 @@ const onDelete = async (id) => {
 };
 
 const onApprove = async () => {
-  if (booking.value.status_id == null || booking.value.status_id.value == null) {
+  if (
+    booking.value.status_id == null ||
+    booking.value.status_id.value == null
+  ) {
     useToast("โปรดระบุข้อมูลสถานะ", "error");
     return;
   }
 
-  if (booking.value.reject_comment == "" || booking.value.reject_comment == null) {
+  if (
+    booking.value.reject_comment == "" ||
+    booking.value.reject_comment == null
+  ) {
     if (booking.value.status_id.value == 3) {
       useToast("โปรดระบุหมายเหตุ", "error");
       return;
@@ -633,7 +1087,21 @@ const onApprove = async () => {
   )
     .then((res) => {
       if (res.msg == "success") {
-        useToast("อนุมัติรายการเสร็จสิ้น", "success");
+        if (res.status_id == 2) {
+          useToast("ปรับสถานะเป็นอนุมัติรายการ", "success");
+        } else if (res.status_id == 3) {
+          useToast("ปรับสถานะเป็น ปฏิเสธรายการ", "success");
+        } else if (res.status_id == 4) {
+          useToast("ปรับสถานะเป็น ยกเลิกรายการ", "success");
+        } else if (res.status_id == 5) {
+          useToast("ปรับสถานะเป็น รอการชำระเงิน", "success");
+        } else if (res.status_id == 6) {
+          useToast("ปรับสถานะเป็น แก้ไขข้อมูลการชำระเงิน", "success");
+        } else if (res.status_id == 8) {
+          useToast("ปรับสถานะ เป็นเสร็จสิ้น", "success");
+        } else {
+          useToast("ปรับสถานะเป็น รออนุมัติรายการ", "success");
+        }
         modalForm.hide();
         // refreshNuxtData("booking");
         router.push({
@@ -644,6 +1112,37 @@ const onApprove = async () => {
       }
     })
     .catch((error) => error.data);
+};
+
+const onSubmitReport = async () => {
+  console.log("FREEDOM");
+};
+
+const onSubmitInvoice = async () => {
+  // invoice_File
+  // preview_invoice_file
+  let data = {
+    id: booking.value.id,
+    invoice_at: dayjs().format("YYYY-MM-DD"),
+    invoice_file:
+      invoice_file.value.files != null ? invoice_file.value.files[0] : null,
+  };
+
+  var form_data = new FormData();
+  for (var key in data) {
+    form_data.append(key, data[key]);
+  }
+
+  await $fetch(
+    `${runtimeConfig.public.apiBase}/booking/invoice-file/${booking.value.id}`,
+    {
+      method: "put",
+      body: form_data,
+    }
+  ).then((res) => {
+    useToast("อับโหลดไฟล์สำเร็จ", "success");
+    preview_invoice_file.value = res.invoice_file;
+  });
 };
 
 useHead({
