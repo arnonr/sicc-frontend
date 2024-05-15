@@ -476,14 +476,17 @@
                     </h3>
                     <div class="d-flex justify-content-between text-end">
                       <h4>เลขบัญชี</h4>
-                      <h4 class="float-end">ธนาคารไทยพาณิชย์<br />123456789</h4>
+                      <h4 class="float-end">
+                        ธนาคารกรุงไทย สาขาบางกรวย<br />109-1-80845-7<br />ชื่อบัญชี
+                        มหาวิทยาลัยดทคโนโลยีพระจอมเกล้าพระนครเหนือ
+                      </h4>
                     </div>
                     <div class="text-center pt-40">
-                      <img
+                      <!-- <img
                         src="~/assets/img/payment/qr_code.png"
                         alt=""
                         class="mx-auto w-100"
-                      />
+                      /> -->
                     </div>
                     <hr />
 
