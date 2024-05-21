@@ -471,50 +471,70 @@
                         บาท
                       </h4>
                     </div>
-                    <h3 class="mt-40">
+                    <h4 class="mt-40 mb-10">
                       กรุณาโอนเงินเพื่อเข้าชำระค่าบริการ/ทดสอบของศูนย์ SICC
-                    </h3>
-                    <div class="d-flex justify-content-between text-end">
-                      <h4>เลขบัญชี</h4>
-                      <h4 class="float-end">
-                        ธนาคารกรุงไทย สาขาบางกรวย<br />109-1-80845-7<br />ชื่อบัญชี
-                        มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ
-                      </h4>
+                    </h4>
+                    <div class="p-2 row">
+                      <div
+                        class="col-md-6 p-3"
+                        style="background-color: #48a5e8"
+                      >
+                        <img src="~/assets/img/logo/logo-kt.jpeg" />
+                      </div>
+                      <div
+                        class="col-md-6 p-3 text-end"
+                        style="background-color: #48a5e8"
+                      >
+                        <h4 class="text-white">
+                          ธนาคารกรุงไทย สาขาบางกรวย<br />109-1-80845-7<br />ชื่อบัญชี
+                          มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ
+                        </h4>
+                      </div>
+                      <div 
+                        class="col-md-12 text-center mt-40">
+                        <img src="~/assets/img/logo/PromptPay-logo.png" class="w-25 mb-0 pb-0" /><br>
+                        <img src="~/assets/img/logo/qr.png" style="width:30%" />
+                      </div>
                     </div>
-                    <div class="text-center pt-40">
-                      <!-- <img
-                        src="~/assets/img/payment/qr_code.png"
-                        alt=""
-                        class="mx-auto w-100"
-                      /> -->
-                    </div>
+                    <div class="text-center pt-40"></div>
                     <hr />
 
                     <h3>รายละเอียดคำสั่งซื้อ #{{ booking.code }}</h3>
-                    <h4 class="mt-20">
-                      ชื่อ-นามสกุล/Name Surname :
-                      {{
-                        booking.prefix +
-                        booking.firstname +
-                        " " +
-                        booking.surname
-                      }}
-                    </h4>
-                    <h4 class="mt-20">
-                      วันที่ทำรายการ/Booking Date :
-                      {{
-                        useCookie("lang") == "en"
-                          ? dayjs(booking.booking_date).format("DD/MM/YYYY")
-                          : dayjs(booking.booking_date)
-                              .locale("th")
-                              .format("DD MMM BBBB")
-                      }}
-                    </h4>
+                    <div class="row mt-30">
+                      <div class="col-md-3">
+                        <h4>ชื่อ-นามสกุล/Name Surname :</h4>
+                      </div>
+                      <div class="col-md-9">
+                        <h4>
+                          {{
+                            booking.prefix +
+                            booking.firstname +
+                            " " +
+                            booking.surname
+                          }}
+                        </h4>
+                      </div>
+                    </div>
+                    <div class="row mt-20">
+                      <div class="col-md-3">
+                        <h4>วันที่ทำรายการ/Booking Date :</h4>
+                      </div>
+                      <div class="col-md-9">
+                        <h4>
+                          {{
+                            useCookie("lang") == "en"
+                              ? dayjs(booking.booking_date).format("DD/MM/YYYY")
+                              : dayjs(booking.booking_date)
+                                  .locale("th")
+                                  .format("DD MMM BBBB")
+                          }}
+                        </h4>
+                      </div>
+                    </div>
 
-                    <div class="col-lg-12 mt-40">
-                      <h3>รายการวิเคราะห์/Method List :</h3>
-                      <span class="fw-bold text-dark"> </span>
-                      <br />
+                    <div class="col-lg-12 mt-30">
+                      <h4 class="mb-20">รายการวิเคราะห์/Method List :</h4>
+                   
 
                       <div>
                         <div
