@@ -649,7 +649,7 @@
                                                                             class="form-check-input"
                                                                             id="exampleCheck1"
                                                                             v-model="
-                                                                                sameAddress
+                                                                                sameAddress.value
                                                                             "
                                                                             @change="
                                                                                 checkSameAddress

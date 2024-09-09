@@ -650,7 +650,7 @@
                                                                             class="form-check-input"
                                                                             id="exampleCheck1"
                                                                             v-model="
-                                                                                sameAddress
+                                                                                sameAddress.value
                                                                             "
                                                                             @change="
                                                                                 checkSameAddress
@@ -1511,24 +1511,24 @@ const calPrice = () => {
             // if (x.is_fixrate == true) {
             //     x.total_price = x.quantity * x.price_normal;
             // } else {
-                let percent = 1;
-                if (booking.value.member_status.id == 1) {
-                    x.price_normal_real = x.price_normal.member1_price;
-                    // percent = 0.3;
-                } else if (booking.value.member_status.id == 2) {
-                    x.price_normal_real = x.price_normal.member2_price;
-                    // percent = 0.5;
-                } else if (booking.value.member_status.id == 3) {
-                    x.price_normal_real = x.price_normal.member3_price;
-                    // percent = 0.6;
-                } else if (booking.value.member_status.id == 4) {
-                    x.price_normal_real = x.price_normal.member4_price;
-                    // percent = 0.8;
-                } else {
-                    x.price_normal_real = x.price_normal.member5_price;
-                    // percent = 1;
-                }
-                x.total_price = x.quantity * (x.price_normal_real * percent);
+            let percent = 1;
+            if (booking.value.member_status.id == 1) {
+                x.price_normal_real = x.price_normal.member1_price;
+                // percent = 0.3;
+            } else if (booking.value.member_status.id == 2) {
+                x.price_normal_real = x.price_normal.member2_price;
+                // percent = 0.5;
+            } else if (booking.value.member_status.id == 3) {
+                x.price_normal_real = x.price_normal.member3_price;
+                // percent = 0.6;
+            } else if (booking.value.member_status.id == 4) {
+                x.price_normal_real = x.price_normal.member4_price;
+                // percent = 0.8;
+            } else {
+                x.price_normal_real = x.price_normal.member5_price;
+                // percent = 1;
+            }
+            x.total_price = x.quantity * (x.price_normal_real * percent);
             // }
 
             booking.value.total_price =

@@ -635,7 +635,7 @@
                                                                             class="form-check-input"
                                                                             id="exampleCheck1"
                                                                             v-model="
-                                                                                sameAddress
+                                                                                sameAddress.value
                                                                             "
                                                                             @change="
                                                                                 checkSameAddress
@@ -1506,7 +1506,6 @@ const calPrice = () => {
     booking.value.total_price = 0;
     booking.value.equipment_booking_method =
         booking.value.equipment_booking_method.map((x) => {
-            
             let percent = 1;
             if (booking.value.member_status.id == 1) {
                 x.price_normal_real = x.price_normal.member1_price;
