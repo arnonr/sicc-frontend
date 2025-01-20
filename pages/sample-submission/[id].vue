@@ -1453,12 +1453,8 @@ const onSelectMethod = (it, event) => {
         //     price_real = it.member1_price;
         // } else if (booking.value.member_status.id == 2) {
         //     price_real = it.member2_price;
-        // } else if (booking.value.member_status.id == 3) {
-        //     price_real = it.member3_price;
-        // } else if (booking.value.member_status.id == 4) {
-        //     price_real = it.member4_price;
         // } else {
-        //     price_real = it.member5_price;
+        //     price_real = it.member3_price;
         // }
 
         booking.value.equipment_booking_method.push({
@@ -1473,8 +1469,6 @@ const onSelectMethod = (it, event) => {
                 member1_price: it.member1_price,
                 member2_price: it.member2_price,
                 member3_price: it.member3_price,
-                member4_price: it.member4_price,
-                member5_price: it.member5_price,
             },
             unit: it.unit,
             quantity: 0,
@@ -1518,14 +1512,8 @@ const calPrice = () => {
             } else if (booking.value.member_status.id == 2) {
                 x.price_normal_real = x.price_normal.member2_price;
                 // percent = 0.5;
-            } else if (booking.value.member_status.id == 3) {
-                x.price_normal_real = x.price_normal.member3_price;
-                // percent = 0.6;
-            } else if (booking.value.member_status.id == 4) {
-                x.price_normal_real = x.price_normal.member4_price;
-                // percent = 0.8;
             } else {
-                x.price_normal_real = x.price_normal.member5_price;
+                x.price_normal_real = x.price_normal.member3_price;
                 // percent = 1;
             }
             x.total_price = x.quantity * (x.price_normal_real * percent);

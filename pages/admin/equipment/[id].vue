@@ -465,28 +465,19 @@
                                                             <th
                                                                 class="text-center"
                                                             >
-                                                                ราคา บุคลากรคณะวิทยาศาสตร์ มจพ.
+                                                                ราคา หน่วยงานภายใน มจพ.
                                                             </th>
                                                             <th
                                                                 class="text-center"
                                                             >
-                                                                ราคา บุคลากรภายในมหาวิทยาลัย
+                                                               ราคา มหาวิทยาลัยอื่น ๆ / หน่วยงานราชการ
                                                             </th>
                                                             <th
                                                                 class="text-center"
                                                             >
-                                                                ราคา (บุคลากรมหาวิทยาลัยภายนอก)
+                                                                ราคา เอกชน / รัฐวิสาหกิจ
                                                             </th>
-                                                            <th
-                                                                class="text-center"
-                                                            >
-                                                                ราคา (หน่วยงาน ราชการ/รัฐวิสหกิจ)
-                                                            </th>
-                                                            <th
-                                                                class="text-center"
-                                                            >
-                                                                ราคา (เอกชน)
-                                                            </th>
+                                                           
                                                             <th
                                                                 class="text-center"
                                                             >
@@ -533,12 +524,6 @@
                                                             </td>
                                                             <td class="text-center"> 
                                                                 {{ it.member3_price }}
-                                                            </td>
-                                                            <td class="text-center"> 
-                                                                {{ it.member4_price }}
-                                                            </td>
-                                                            <td class="text-center"> 
-                                                                {{ it.member5_price }}
                                                             </td>
                                                             <th
                                                                 class="text-center"
@@ -742,7 +727,7 @@
                                     for="recipient-name"
                                     class="col-form-label"
                                     ><span class="text-danger">*</span>ราคา
-                                    (บุคลากรคณะวิทยาศาสตร์ มจพ.) :</label
+                                    (หน่วยงานภายใน มจพ.) :</label
                                 >
                                 <input
                                     type="text"
@@ -757,7 +742,7 @@
                                     for="recipient-name"
                                     class="col-form-label"
                                     ><span class="text-danger">*</span>ราคา
-                                    (บุคลากรภายในมหาวิทยาลัย) :</label
+                                    (มหาวิทยาลัยอื่น ๆ/หน่วยงานราชการ) :</label
                                 >
                                 <input
                                     type="text"
@@ -772,7 +757,7 @@
                                     for="recipient-name"
                                     class="col-form-label"
                                     ><span class="text-danger">*</span>ราคา
-                                    (บุคลากรมหาวิทยาลัยภายนอก) :</label
+                                    (เอกชน/รัฐวิสาหกิจ) :</label
                                 >
                                 <input
                                     type="text"
@@ -782,37 +767,6 @@
                                     placeholder="ราคา"
                                 />
                             </div>
-                            <div class="col-12 mt-10">
-                                <label
-                                    for="recipient-name"
-                                    class="col-form-label"
-                                    ><span class="text-danger">*</span>ราคา
-                                    (หน่วยงาน ราชการ/รัฐวิสหกิจ) :</label
-                                >
-                                <input
-                                    type="text"
-                                    class="form-control form-control-plaintext"
-                                    id="txt-prefix"
-                                    v-model="method_item.member4_price"
-                                    placeholder="ราคา"
-                                />
-                            </div>
-                            <div class="col-12 mt-10">
-                                <label
-                                    for="recipient-name"
-                                    class="col-form-label"
-                                    ><span class="text-danger">*</span>ราคา
-                                    (เอกชน) :</label
-                                >
-                                <input
-                                    type="text"
-                                    class="form-control form-control-plaintext"
-                                    id="txt-prefix"
-                                    v-model="method_item.member5_price"
-                                    placeholder="ราคา"
-                                />
-                            </div>
-
                             <div class="col-12 mt-10">
                                 <label
                                     for="recipient-name"
@@ -1033,11 +987,7 @@ const onMethodSubmit = async () => {
         method_item.value.member2_price == "" ||
         method_item.value.member2_price == null ||
         method_item.value.member3_price == "" ||
-        method_item.value.member3_price == null ||
-        method_item.value.member4_price == "" ||
-        method_item.value.member4_price == null ||
-        method_item.value.member5_price == "" ||
-        method_item.value.member5_price == null
+        method_item.value.member3_price == null
     ) {
         useToast("โปรดระบุข้อมูลให้ครบถ้วน", "error");
         return;
@@ -1069,8 +1019,6 @@ const onMethodSubmit = async () => {
             member1_price: method_item.value.member1_price,
             member2_price: method_item.value.member2_price,
             member3_price: method_item.value.member3_price,
-            member4_price: method_item.value.member4_price,
-            member5_price: method_item.value.member5_price,
         },
     })
         .then((res) => {
