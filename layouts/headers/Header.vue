@@ -9,12 +9,12 @@
               <div class="logo text-start">
                 <NuxtLink to="/">
                   <img
-                    src="~/assets/img/iconwebtechnopark/logo-sicc.png"
+                    src="~/assets/img/iconwebtechnopark/logo-sitt.png"
                     class="img-header-logo"
                     alt=""
                   />
                   <!-- <img
-                    src="~/assets/img/iconwebtechnopark/logo-sicc-dark.png"
+                    src="~/assets/img/iconwebtechnopark/logo-sitt-dark.png"
                     class="img-header-logo"
                     alt=""
                     v-if="useSkin().value == 'skin-dark'"
@@ -259,7 +259,7 @@
                 <div class="logo">
                   <NuxtLink to="/">
                     <img
-                      src="~/assets/img/iconwebtechnopark/logo-sicc.png"
+                      src="~/assets/img/iconwebtechnopark/logo-sitt.png"
                       style="width: 70%"
                       alt=""
                     />

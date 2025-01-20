@@ -8,7 +8,7 @@
       <div class="offcanvas__shape">
         <!-- <img
           class="offcanvas__shape-1"
-          src="~/assets/img/iconwebtechnopark/logo-sicc.png"
+          src="~/assets/img/iconwebtechnopark/logo-sitt.png"
           alt="shape"
         /> -->
       </div>
@@ -27,7 +27,7 @@
           <div class="offcanvas__logo logo">
             <nuxt-link href="/">
               <img
-                src="~/assets/img/iconwebtechnopark/logo-sicc.png"
+                src="~/assets/img/iconwebtechnopark/logo-sitt.png"
                 alt="logo"
                 style="width: 50%"
               />

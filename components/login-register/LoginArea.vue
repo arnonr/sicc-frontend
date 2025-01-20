@@ -8,7 +8,7 @@
             <div class="login__wrapper">
               <div class="login__top mb-30 text-center">
                 <img
-                  src="~/assets/img/iconwebtechnopark/logo-sicc.jpeg"
+                  src="~/assets/img/iconwebtechnopark/logo-sitt.jpeg"
                   alt="shape"
                   style="width:60%"
                 />
