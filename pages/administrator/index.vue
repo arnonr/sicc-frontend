@@ -38,7 +38,7 @@
                   <h2>{{ $t("Administrator") }}</h2>
                   <h2 style="color: rgb(255, 203, 5)">
                     {{ $t("Scientific Instrument") }} <br />
-                    {{ $t("and High Performance Computing Center") }}
+                    {{ $t("and Technological Transfer Center") }}
                   </h2>
                 </div>
               </div>
@@ -211,7 +211,7 @@ watchEffect(() => {
 
 useHead({
   title:
-    "บุคลากร ศูนย์เครื่องมือวิทยาศาสตร์และคอมพิวเตอร์สมรรถนะสูง คณะวิทยาศาสตร์ประยุกต์",
+    "บุคลากร ศูนย์เครื่องมือวิทยาศาสตร์และถ่ายทอดเทคโนโลยี คณะวิทยาศาสตร์ประยุกต์",
 });
 </script>
 

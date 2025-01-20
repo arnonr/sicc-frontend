@@ -10,10 +10,10 @@ import "toastify-js/src/toastify.css";
 
 useHead({
   title:
-    "ศูนย์เครื่องมือวิทยาศาสตร์และคอมพิวเตอร์สมรรถนะสูง คณะวิทยาศาสตร์ประยุกต์",
+    "ศูนย์เครื่องมือวิทยาศาสตร์และถ่ายทอดเทคโนโลยี คณะวิทยาศาสตร์ประยุกต์",
   meta: [
     {
-      name: " Scientific Instrument and High Performance Computing Center : SICC, Faculty of Applied Science",
+      name: "Scientific Instrument and Technological Transfer Center : SITT, Faculty of Applied Science",
       content: "Faculty of Applied Science",
     },
   ],

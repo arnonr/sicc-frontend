@@ -98,7 +98,7 @@ export default defineNuxtConfig({
   plugins: [{ src: "~/plugins/froala-editor.client.js", mode: "client" }],
   app: {
     head: {
-      title: "SICC",
+      title: "SITT",
       link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
       script: [
         {

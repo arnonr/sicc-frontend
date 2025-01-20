@@ -42,7 +42,7 @@
                   <h2>{{ item.title }}</h2>
                   <h2 style="color: rgb(255, 203, 5)">
                     {{ $t("Scientific Instrument") }} <br />
-                    {{ $t("and High Performance Computing Center") }} 
+                    {{ $t("and Technological Transfer Center") }} 
                   </h2>
                 </div>
               </div>
@@ -97,7 +97,7 @@ useHead({
     item.value.title +
     " " +
     t(
-      "Scientific Instrument and High Performance Computing Center : SICC, Faculty of Applied Science"
+      "Scientific Instrument and Technological Transfer Center : SITT, Faculty of Applied Science"
     ),
 });
 

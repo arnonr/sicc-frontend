@@ -7,7 +7,7 @@
           <div class="col-xl-6 col-lg-8 col-md-10">
             <div class="login__wrapper">
               <div class="login__top mb-30 text-center">
-                <h3 class="login__title">SICC</h3>
+                <h3 class="login__title">SITT</h3>
                 <p>Reset Password</p>
               </div>
               <div class="login__form" v-if="textError == ''">

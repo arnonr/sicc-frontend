@@ -13,7 +13,7 @@ export default {
   },
   setup() {
     useHead({
-      title: "Login SICC",
+      title: "Login SITT",
     });
   },
 };

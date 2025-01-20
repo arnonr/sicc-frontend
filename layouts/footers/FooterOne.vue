@@ -11,13 +11,12 @@
               <div class="footer__widget footer__widget-5 mb-50 footer-col-5-1">
                 <div class="footer__widget-content">
                   <div class="footer__info">
-                    <h4>ศูนย์เครื่องมือวิทยาศาสตร์และคอมพิวเตอร์สมรรถนะสูง</h4>
+                    <h4>ศูนย์เครื่องมือวิทยาศาสตร์และถ่ายทอดเทคโนโลยี</h4>
                     <h4>คณะวิทยาศาสตร์ประยุกต์</h4>
 
                     <p style="font-size: 1em">
                       <span>
-                        Scientific Instrument and High Performance Computing
-                        Center : SICC
+                        Scientific Instrument and Technological Transfer Center : SITT
                       </span>
                       <br />
                       <span>Faculty of Applied Science</span>
@@ -80,7 +79,7 @@
                           border-radius: 1em;
                         "
                       >
-                        ศูนย์เครื่องมือวิทยาศาสตร์และคอมพิวเตอร์สมรรถนะสูง-SICC
+                      ศูนย์เครื่องมือวิทยาศาสตร์และถ่ายทอดเทคโนโลยี-SITT
                       </div>
                     </a>
                   </div>
@@ -114,7 +113,7 @@
               <div class="footer__copyright-5">
                 <p>
                   © {{ new Date().getFullYear() + 543 }}
-                  ศูนย์เครื่องมือวิทยาศาสตร์และคอมพิวเตอร์สมรรถนะสูง
+                  ศูนย์เครื่องมือวิทยาศาสตร์และถ่ายทอดเทคโนโลยี
                   คณะวิทยาศาสตร์ประยุกต์
                 </p>
               </div>

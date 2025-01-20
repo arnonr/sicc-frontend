@@ -251,7 +251,7 @@ watch([resEquipmentDepartment], () => {
 
 useHead({
   title:
-    "Sample Submission ศูนย์เครื่องมือวิทยาศาสตร์และคอมพิวเตอร์สมรรถนะสูง คณะวิทยาศาสตร์ประยุกต์",
+    "Sample Submission ศูนย์เครื่องมือวิทยาศาสตร์และถ่ายทอดเทคโนโลยี คณะวิทยาศาสตร์ประยุกต์",
 });
 
 definePageMeta({

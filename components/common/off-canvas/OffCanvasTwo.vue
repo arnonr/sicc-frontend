@@ -49,7 +49,7 @@
           </div>
         </div>
         <div class="offcanvas__inner mb-80 d-none d-lg-block">
-          <h4>SICC</h4>
+          <h4>SITT</h4>
           <p>KMUTNB</p>
           <img src="~/assets/img/shape/offcanvas-img-1.png" alt="" />
         </div>

@@ -4,7 +4,7 @@
       <div class="header__top-4 header__padding-4">
         <div class="container">
           <div class="row align-items-center">
-            <!-- Logo SICC -->
+            <!-- Logo SITT -->
             <div class="col-xxl-8 col-xl-8 col-lg-6 col-md-5 col-5">
               <div class="logo text-start">
                 <NuxtLink to="/">
@@ -22,12 +22,12 @@
                 </NuxtLink>
 
                 <h5 class="d-none d-xl-block d-lg-block text-color-secondary">
-                  ศูนย์เครื่องมือวิทยาศาสตร์และคอมพิวเตอร์สมรรถนะสูง
+                ศูนย์เครื่องมือวิทยาศาสตร์และถ่ายทอดเทคโนโลยี
                   คณะวิทยาศาสตร์ประยุกต์
                 </h5>
                 <h6 class="d-none d-xl-block d-lg-block text-color-secondary">
-                  Scientific Instrument and High Performance Computing Center :
-                  SICC, Faculty of Applied Science
+                Scientific Instrument and Technological Transfer Center :
+                  SITT, Faculty of Applied Science
                 </h6>
               </div>
             </div>
