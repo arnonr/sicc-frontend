@@ -453,7 +453,7 @@ const onSubmit = async () => {
 
   let type_object = {
     text_success: "แก้ไขรายการเสร็จสิ้น",
-    method: "put",
+    method: "post",
     url: runtimeConfig.public.apiBase + "/news/" + item.value.id,
   };
 
