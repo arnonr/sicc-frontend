@@ -17,10 +17,16 @@ export default defineNuxtConfig({
       //   apiBase: "http://143.198.208.110:3003/api/v1",
       //   apiBase: "http://localhost:3003/api/v1",
       apiBase: process.env.NUXT_PUBLIC_API_BASE,
+      // apiBase: process.env.API_BASE_URL || 'https://your-default-api.com',
     },
     // public: {
     //   apiBase: "http://technopark.kmutnb.ac.th/api/v1",
     // },
+  },
+  nitro: {
+    prerender: {
+      crawlLinks: false // ปิดการ prerender อัตโนมัติ
+    }
   },
   css: [
     "bootstrap/scss/bootstrap.scss",
