@@ -2,7 +2,7 @@
     <client-only>
         <section class="slider__area p-relative" v-if="items.length != 0">
             <swiper
-                class="slider__active-12 slider__height-12 swiper-container"
+                class="slider__active-12 slider__height-12 swiper-fullwidth"
                 :slidesPerView="1"
                 :spaceBetween="0"
                 :effect="'fade'"
@@ -24,8 +24,8 @@
                 <swiper-slide
                     v-for="it in items"
                     :key="it.id"
-                    :class="`slider__item-12 slider__bg-12 ${it.bg} d-flex align-items-center`"
                 >
+                <!-- :class="`slider__item-12 slider__bg-12 ${it.bg} d-flex align-items-center`" -->
                     <a :href="it.banner_url">
                         <img
                             :src="it.banner_file"
