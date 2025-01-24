@@ -102,23 +102,25 @@ newsType.value = resNewsType.value.data;
 console.log("API Base:", runtimeConfig.public.apiBase);
 
 const { data: res } = await useAsyncData("home-news", async () => {
-    let data = await $fetch(`${runtimeConfig.public.apiBase}/news`, {
-        params: {
-            ...search.value,
-            news_type_id:
-                search.value.news_type_id == null
-                    ? undefined
-                    : search.value.news_type_id,
-            perPage: 8,
-            currentPage: 1,
-            lang: useCookie("lang").value || "th",
-        },
-    });
+    if (process.client) {
+        let data = await $fetch(`${runtimeConfig.public.apiBase}/news`, {
+            params: {
+                ...search.value,
+                news_type_id:
+                    search.value.news_type_id == null
+                        ? undefined
+                        : search.value.news_type_id,
+                perPage: 8,
+                currentPage: 1,
+                lang: useCookie("lang").value || "th",
+            },
+        });
 
-    if (data) {
-        return { data: data.data };
-    } else {
-        return { data: [] };
+        if (data) {
+            return { data: data.data };
+        } else {
+            return { data: [] };
+        }
     }
 });
 
