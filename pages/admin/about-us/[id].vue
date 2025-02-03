@@ -138,6 +138,11 @@ onMounted(() => {
 useHead({
   title: "About Us",
 });
+
+definePageMeta({
+    middleware: "auth",
+});
+
 </script>
 
 <style scoped>
