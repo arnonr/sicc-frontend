@@ -242,6 +242,7 @@ definePageMeta({
 useHead({
   title: "Users",
 });
+
 </script>
 
 <style scoped>

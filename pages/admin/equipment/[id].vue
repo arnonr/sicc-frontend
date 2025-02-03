@@ -465,19 +465,25 @@
                                                             <th
                                                                 class="text-center"
                                                             >
-                                                                ราคา หน่วยงานภายใน มจพ.
+                                                                ราคา
+                                                                หน่วยงานภายใน
+                                                                มจพ.
                                                             </th>
                                                             <th
                                                                 class="text-center"
                                                             >
-                                                               ราคา มหาวิทยาลัยอื่น ๆ / หน่วยงานราชการ
+                                                                ราคา
+                                                                มหาวิทยาลัยอื่น
+                                                                ๆ /
+                                                                หน่วยงานราชการ
                                                             </th>
                                                             <th
                                                                 class="text-center"
                                                             >
-                                                                ราคา เอกชน / รัฐวิสาหกิจ
+                                                                ราคา เอกชน /
+                                                                รัฐวิสาหกิจ
                                                             </th>
-                                                           
+
                                                             <th
                                                                 class="text-center"
                                                             >
@@ -516,14 +522,26 @@
                                                             <td>
                                                                 {{ it.unit_en }}
                                                             </td>
-                                                            <td class="text-center"> 
-                                                                {{ it.member1_price }}
+                                                            <td
+                                                                class="text-center"
+                                                            >
+                                                                {{
+                                                                    it.member1_price
+                                                                }}
                                                             </td>
-                                                            <td class="text-center"> 
-                                                                {{ it.member2_price }}
+                                                            <td
+                                                                class="text-center"
+                                                            >
+                                                                {{
+                                                                    it.member2_price
+                                                                }}
                                                             </td>
-                                                            <td class="text-center"> 
-                                                                {{ it.member3_price }}
+                                                            <td
+                                                                class="text-center"
+                                                            >
+                                                                {{
+                                                                    it.member3_price
+                                                                }}
                                                             </td>
                                                             <th
                                                                 class="text-center"
@@ -1035,6 +1053,10 @@ const onMethodSubmit = async () => {
 
 useHead({
     title: "Equipment",
+});
+
+definePageMeta({
+    middleware: "auth",
 });
 </script>
 
