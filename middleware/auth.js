@@ -20,6 +20,10 @@ export default defineNuxtRouteMiddleware((to, from) => {
     return navigateTo("/login");
   }
 
+  if (!token.value && to?.name  === "/admin") {
+    return navigateTo("/");
+  }
+
   if (!token.value && to?.name  === "sample-submission-id") {
     return navigateTo("/login");
   }
