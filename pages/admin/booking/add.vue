@@ -167,7 +167,10 @@
                                                                                 –
                                                                                 อาทิตย์
                                                                                 และวันหยุดนักขัตฤกษ์
-                                                                                ***<br>ก่อนทำการจองสามารถติดต่อสอบถามวันเวลาที่เครื่องว่างได้ที่ 02-555-2000 ต่อ 4257,4241
+                                                                                ***<br />ก่อนทำการจองสามารถติดต่อสอบถามวันเวลาที่เครื่องว่างได้ที่
+                                                                                02-555-2000
+                                                                                ต่อ
+                                                                                4257,4241
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -777,6 +780,35 @@
                                                                                               .format(
                                                                                                   "DD MMM BBBB"
                                                                                               )
+                                                                                }}</span
+                                                                            >
+                                                                            <hr
+                                                                                class="hr-dotted"
+                                                                            />
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="col-lg-6 mt-10"
+                                                                        >
+                                                                            <span
+                                                                                class="fw-bold text-dark"
+                                                                                >เวลาที่จอง/Booking
+                                                                                Time
+                                                                                : </span
+                                                                            ><span
+                                                                                class="text-color-primary fw-bold"
+                                                                                >{{
+                                                                                    useCookie(
+                                                                                        "lang"
+                                                                                    )
+                                                                                        .value ==
+                                                                                    "en"
+                                                                                        ? item
+                                                                                              .period_time
+                                                                                              .name_en
+                                                                                        : item
+                                                                                              .period_time
+                                                                                              .name_th
                                                                                 }}</span
                                                                             >
                                                                             <hr

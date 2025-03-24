@@ -818,7 +818,7 @@
                                                                             />
                                                                         </div>
                                                                         <div
-                                                                            class="col-lg-12 mt-10"
+                                                                            class="col-lg-6 mt-10"
                                                                         >
                                                                             <span
                                                                                 class="fw-bold text-dark"
@@ -846,6 +846,35 @@
                                                                                               .format(
                                                                                                   "DD MMM BBBB"
                                                                                               )
+                                                                                }}</span
+                                                                            >
+                                                                            <hr
+                                                                                class="hr-dotted"
+                                                                            />
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="col-lg-6 mt-10"
+                                                                        >
+                                                                            <span
+                                                                                class="fw-bold text-dark"
+                                                                                >เวลาที่จอง/Booking
+                                                                                Time
+                                                                                : </span
+                                                                            ><span
+                                                                                class="text-color-primary fw-bold"
+                                                                                >{{
+                                                                                    useCookie(
+                                                                                        "lang"
+                                                                                    )
+                                                                                        .value ==
+                                                                                    "en"
+                                                                                        ? booking
+                                                                                              .period_time
+                                                                                              .name_en
+                                                                                        : booking
+                                                                                              .period_time
+                                                                                              .name_th
                                                                                 }}</span
                                                                             >
                                                                             <hr
