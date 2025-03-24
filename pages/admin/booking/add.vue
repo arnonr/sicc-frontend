@@ -649,7 +649,7 @@
                                                                                 sameAddress
                                                                             "
                                                                             @change="
-                                                                                checkSameAddress
+                                                                                checkSameAddress()
                                                                             "
                                                                         />
                                                                         <label
@@ -1135,12 +1135,13 @@
                                                                 :disabled="
                                                                     finish_button_disabled
                                                                 "
-                                                                :class="`${
-                                                                    finish_button_disabled ==
-                                                                    true
+                                                                :class="[
+                                                                    finish_button_disabled
                                                                         ? 'tp-btn-border-grey'
-                                                                        : 'tp-btn-border-brown'
-                                                                } text-uppercase mr-15`"
+                                                                        : 'tp-btn-border-brown',
+                                                                    'text-uppercase',
+                                                                    'mr-15',
+                                                                ]"
                                                             >
                                                                 Previous
                                                             </button>
