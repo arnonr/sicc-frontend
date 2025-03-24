@@ -105,9 +105,7 @@
                                                                             class="col-sm-9"
                                                                         >
                                                                             <VueDatePicker
-                                                                                v-model="
-                                                                                    booking.booking_date
-                                                                                "
+                                                                                v-model="booking.booking_date"
                                                                                 :enable-time-picker="
                                                                                     false
                                                                                 "
@@ -205,9 +203,7 @@
                                                                                     selectOptions.period_times
                                                                                 "
                                                                                 id="slt-period_time"
-                                                                                v-model="
-                                                                                    booking.period_time
-                                                                                "
+                                                                                v-model="booking.period_time"
                                                                                 class="form-control v-select-no-border"
                                                                                 :clearable="
                                                                                     true
@@ -246,9 +242,7 @@
                                                                                 style="
                                                                                     height: 100px;
                                                                                 "
-                                                                                v-model="
-                                                                                    booking.example
-                                                                                "
+                                                                                v-model="booking.example"
                                                                             ></textarea>
                                                                         </div>
                                                                     </div>
@@ -457,9 +451,7 @@
                                                                                         type="text"
                                                                                         class="form-control form-control-plaintext"
                                                                                         id="txt-prefix"
-                                                                                        v-model="
-                                                                                            booking.prefix
-                                                                                        "
+                                                                                        v-model="booking.prefix"
                                                                                         placeholder="คำนำหน้า"
                                                                                     />
                                                                                 </div>
@@ -470,9 +462,7 @@
                                                                                         type="text"
                                                                                         class="form-control form-control-plaintext"
                                                                                         id="txt-firstname"
-                                                                                        v-model="
-                                                                                            booking.firstname
-                                                                                        "
+                                                                                        v-model="booking.firstname"
                                                                                         placeholder="ชื่อ"
                                                                                     />
                                                                                 </div>
@@ -483,9 +473,7 @@
                                                                                         type="text"
                                                                                         class="form-control form-control-plaintext"
                                                                                         id="txt-surname"
-                                                                                        v-model="
-                                                                                            booking.surname
-                                                                                        "
+                                                                                        v-model="booking.surname"
                                                                                         placeholder="นามสกุล"
                                                                                     />
                                                                                 </div>
@@ -523,9 +511,7 @@
                                                                                     selectOptions.member_statuses
                                                                                 "
                                                                                 id="slt-member-status"
-                                                                                v-model="
-                                                                                    booking.member_status
-                                                                                "
+                                                                                v-model="booking.member_status"
                                                                                 class="form-control v-select-no-border"
                                                                                 :clearable="
                                                                                     true
@@ -550,9 +536,7 @@
                                                                                 type="text"
                                                                                 class="form-control form-control-plaintext"
                                                                                 id="txt-organization"
-                                                                                v-model="
-                                                                                    booking.organization
-                                                                                "
+                                                                                v-model="booking.organization"
                                                                             />
                                                                         </div>
                                                                     </div>
@@ -577,9 +561,7 @@
                                                                                 style="
                                                                                     height: 70px;
                                                                                 "
-                                                                                v-model="
-                                                                                    booking.contact_address
-                                                                                "
+                                                                                v-model="booking.contact_address"
                                                                             ></textarea>
                                                                         </div>
                                                                     </div>
@@ -603,9 +585,7 @@
                                                                                 type="text"
                                                                                 class="form-control form-control-plaintext"
                                                                                 id="txt-phone"
-                                                                                v-model="
-                                                                                    booking.phone
-                                                                                "
+                                                                                v-model="booking.phone"
                                                                             />
                                                                         </div>
                                                                     </div>
@@ -629,9 +609,7 @@
                                                                                 type="text"
                                                                                 class="form-control form-control-plaintext"
                                                                                 id="txt-email"
-                                                                                v-model="
-                                                                                    booking.email
-                                                                                "
+                                                                                v-model="booking.email"
                                                                             />
                                                                         </div>
                                                                     </div>
@@ -676,9 +654,7 @@
                                                                                 style="
                                                                                     height: 70px;
                                                                                 "
-                                                                                v-model="
-                                                                                    booking.invoice_address
-                                                                                "
+                                                                                v-model="booking.invoice_address"
                                                                             ></textarea>
                                                                         </div>
                                                                     </div>
@@ -723,9 +699,7 @@
                                                                                 type="text"
                                                                                 class="form-control form-control-plaintext"
                                                                                 id="txt-phone2"
-                                                                                v-model="
-                                                                                    booking.phone2
-                                                                                "
+                                                                                v-model="booking.phone2"
                                                                             />
                                                                         </div>
                                                                     </div>
@@ -746,9 +720,7 @@
                                                                                 type="text"
                                                                                 class="form-control form-control-plaintext"
                                                                                 id="txtTaxID"
-                                                                                v-model="
-                                                                                    booking.tax_id
-                                                                                "
+                                                                                v-model="booking.tax_id"
                                                                             />
                                                                         </div>
                                                                     </div>

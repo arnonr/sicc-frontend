@@ -645,9 +645,7 @@
                                                                             type="checkbox"
                                                                             class="form-check-input"
                                                                             id="exampleCheck1"
-                                                                            v-model="
-                                                                                sameAddress
-                                                                            "
+                                                                            v-model="sameAddress"
                                                                             @change="
                                                                                 checkSameAddress()
                                                                             "
