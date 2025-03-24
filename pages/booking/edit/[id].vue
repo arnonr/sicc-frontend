@@ -660,7 +660,7 @@
                                                                             class="form-check-input"
                                                                             id="exampleCheck1"
                                                                             v-model="
-                                                                                sameAddress.value
+                                                                                sameAddress
                                                                             "
                                                                             @change="
                                                                                 checkSameAddress

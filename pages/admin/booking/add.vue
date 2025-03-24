@@ -643,7 +643,7 @@
                                                                             class="form-check-input"
                                                                             id="exampleCheck1"
                                                                             v-model="
-                                                                                sameAddress.value
+                                                                                sameAddress
                                                                             "
                                                                             @change="
                                                                                 checkSameAddress
@@ -1577,6 +1577,7 @@ const sameAddress = ref(false);
 const checkSameAddress = () => {
     if (sameAddress.value == true) {
         booking.value.invoice_address = booking.value.contact_address;
+        booking.value.phone2 = booking.value.phone;
     } else {
         booking.value.invoice_address = "";
     }
