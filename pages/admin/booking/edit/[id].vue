@@ -1453,7 +1453,13 @@ const onLoadEquipmentBookingMethod = () => {
                 x.name = equipment_method.name;
                 x.name_short = equipment_method.name_short;
                 // x.price = equipment_method.price;
-                x.price_normal = equipment_method.price;
+                x.price_normal = {
+                    member1_price: equipment_method.member1_price,
+                    member2_price: equipment_method.member2_price,
+                    member3_price: equipment_method.member3_price,
+                    member4_price: equipment_method.member4_price,
+                    member5_price: equipment_method.member5_price,
+                }
                 x.unit = equipment_method.unit;
 
                 let no_input = document.getElementById(
@@ -1515,6 +1521,7 @@ const calPrice = () => {
     booking.value.total_price = 0;
     booking.value.equipment_booking_method =
         booking.value.equipment_booking_method.map((x) => {
+        console.log(x)
             let percent = 1;
             if (booking.value.member_status.id == 1) {
                 x.price_normal_real = x.price_normal.member1_price;
