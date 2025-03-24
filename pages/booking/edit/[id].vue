@@ -175,6 +175,17 @@
                                                                                     }}
                                                                                 </template>
                                                                             </VueDatePicker>
+                                                                            <div
+                                                                                class="mt-6 fs-6 text-danger"
+                                                                            >
+                                                                                ***
+                                                                                ปิดให้บริการทุกวัน
+                                                                                เสาร์
+                                                                                –
+                                                                                อาทิตย์
+                                                                                และวันหยุดนักขัตฤกษ์
+                                                                                ***<br>ก่อนทำการจองสามารถติดต่อสอบถามวันเวลาที่เครื่องว่างได้ที่ 02-555-2000 ต่อ 4257,4241
+                                                                            </div>
                                                                         </div>
                                                                     </div>
 
@@ -1511,7 +1522,7 @@ const calPrice = () => {
             } else if (booking.value.member_status.id == 2) {
                 x.price_normal_real = x.price_normal.member2_price;
                 // percent = 0.5;
-            }  else {
+            } else {
                 x.price_normal_real = x.price_normal.member3_price;
                 // percent = 1;
             }

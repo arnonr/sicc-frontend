@@ -74,10 +74,10 @@
                     <nuxt-link href="/register">Register Now</nuxt-link>
                   </p>
 
-                  <p>
+                  <!-- <p>
                     Resend Confirm
                     <nuxt-link href="/resend-confirm-email">Email</nuxt-link>
-                  </p>
+                  </p> -->
                 </div>
               </div>
             </div>
