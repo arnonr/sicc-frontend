@@ -41,9 +41,9 @@ const project = ref([
     url: "/sample-submission",
   },
   {
-    name: "Equipment & Rate",
-    project_file: "images/iconwebtechnopark/icon_home2.png",
-    url: "/equipment-and-rate",
+    name: "Technological Transfer",
+    project_file: "images/iconwebtechnopark/icon_home5.png",
+    url: "#",
   },
   {
     name: "Direction",
