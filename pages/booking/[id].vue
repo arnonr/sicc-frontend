@@ -52,8 +52,8 @@
                                     <div
                                         class="postbox__main-wrapper"
                                         v-if="
-                                            booking.status_id != 5 &&
-                                            booking.status_id != 6
+                                            booking.status_id != 2 &&
+                                            booking.status_id != 4
                                         "
                                     >
                                         <div
@@ -555,7 +555,7 @@
                                                                         class="d-flex justify-content-between"
                                                                         v-if="
                                                                             booking.status_id ==
-                                                                            8
+                                                                            6
                                                                         "
                                                                     >
                                                                         <div>
@@ -599,14 +599,14 @@
                                                                         class="hr-dotted"
                                                                         v-if="
                                                                             booking.status_id ==
-                                                                            8
+                                                                            6
                                                                         "
                                                                     />
                                                                     <div
                                                                         class="row"
                                                                         v-if="
                                                                             booking.status_id >
-                                                                                5 &&
+                                                                                4 &&
                                                                             preview_slip_file
                                                                         "
                                                                     >
@@ -715,14 +715,14 @@
                                                                         class="hr-dotted"
                                                                         v-if="
                                                                             booking.status_id ==
-                                                                            8
+                                                                            6
                                                                         "
                                                                     />
                                                                     <div
                                                                         class="d-flex justify-content-between"
                                                                         v-if="
                                                                             booking.status_id ==
-                                                                            8
+                                                                            6
                                                                         "
                                                                     >
                                                                         <div>

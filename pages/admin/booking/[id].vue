@@ -662,7 +662,7 @@
                                                                             class="col-lg-12 mt-10"
                                                                             v-if="
                                                                                 booking.status_id >
-                                                                                    5 &&
+                                                                                    4 &&
                                                                                 preview_slip_file
                                                                             "
                                                                         >
@@ -695,7 +695,7 @@
                                                                             class="col-lg-12 mt-10"
                                                                             v-if="
                                                                                 booking.status_id >
-                                                                                    5 &&
+                                                                                    4 &&
                                                                                 preview_slip_file
                                                                             "
                                                                         >
@@ -716,7 +716,7 @@
                                                                             class="col-lg-12 mt-10"
                                                                             v-if="
                                                                                 booking.status_id >
-                                                                                    5 &&
+                                                                                    4 &&
                                                                                 preview_slip_file
                                                                             "
                                                                         >
@@ -746,7 +746,7 @@
                                                                             class="col-lg-12 mt-10"
                                                                             v-if="
                                                                                 booking.status_id >
-                                                                                    5 &&
+                                                                                    4 &&
                                                                                 preview_slip_file
                                                                             "
                                                                         >
@@ -773,7 +773,7 @@
                                                                         class="hr-dotted"
                                                                         v-if="
                                                                             booking.status_id ==
-                                                                            8
+                                                                            7
                                                                         "
                                                                     />
                                                                     <!-- <div class="d-flex justify-content-between">
@@ -1468,19 +1468,19 @@ const onApprove = async () => {
         .then((res) => {
             if (res.msg == "success") {
                 if (res.status_id == 2) {
-                    useToast("ปรับสถานะเป็นอนุมัติรายการ", "success");
+                    useToast("อนุมัติ และรอการชำระเงิน", "success");
                 } else if (res.status_id == 3) {
-                    useToast("ปรับสถานะเป็น ปฏิเสธรายการ", "success");
+                    useToast("ยกเลิก", "success");
                 } else if (res.status_id == 4) {
-                    useToast("ปรับสถานะเป็น ยกเลิกรายการ", "success");
+                    useToast("ยกเลิกรายการ", "success");
                 } else if (res.status_id == 5) {
-                    useToast("ปรับสถานะเป็น รอการชำระเงิน", "success");
+                    useToast("รอตรวจสอบหลักฐานการชำระเงิน", "success");
                 } else if (res.status_id == 6) {
-                    useToast("ปรับสถานะเป็น แก้ไขข้อมูลการชำระเงิน", "success");
-                } else if (res.status_id == 8) {
-                    useToast("ปรับสถานะ เป็นเสร็จสิ้น", "success");
+                    useToast("ชำระเงินสำเร็จ กรุณามาตาม วัน/เวลาที่นัดหมาย", "success");
+                } else if (res.status_id == 7) {
+                    useToast("เสร็จสิ้น", "success");
                 } else {
-                    useToast("ปรับสถานะเป็น รออนุมัติรายการ", "success");
+                    useToast("รออนุมัติ", "success");
                 }
                 modalForm.hide();
                 // refreshNuxtData("booking");
