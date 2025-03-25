@@ -281,6 +281,52 @@ export default {
           crossDomain: true,
         };
       },
+      froala_config_mini: function () {
+        const runtimeConfig = useRuntimeConfig();
+        return {
+          height: 300,
+          // inlineMode: false,
+          pastePlain: true,
+          paragraphy: false,
+          quickInsertEnabled: false,
+          toolbarButtons: [
+           
+            "fontSize",
+            "color",
+            "bold",
+            "italic",
+            "underline",
+            "inlineClass",
+            "|",
+            "paragraphFormat",
+            "align",
+            "outdent",
+            "indent",
+            "|",
+            "formatOL",
+            "formatUL",
+          ],
+          // Change buttons for XS screen.
+          toolbarButtonsXS: [
+            ["undo", "redo"],
+            ["bold", "italic", "underline", "subscript", "superscript"],
+          ],
+          placeholderText: "",
+          attribution: false,
+          key: "enter-your-license-key-here",
+          disableRightClick: true,
+          imageUploadURL: `${runtimeConfig.public.apiBase}/froala/image`,
+          imageAllowedTypes: ["jpeg", "jpg", "png"],
+          fileUploadURL: `${runtimeConfig.public.apiBase}/froala/document`,
+          videoUploadURL: `${runtimeConfig.public.apiBase}/froala/video`,
+          // fileUpload: false,
+          // imageUpload: false,
+          imagePaste: false,
+          imagePasteProcess: false,
+          imageResize: true,
+          crossDomain: true,
+        };
+      },
     };
   },
 };

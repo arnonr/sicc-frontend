@@ -79,7 +79,7 @@
           <grid-item
             v-if="it.equipment_department"
             :item="{
-              link: 'sample-submission/',
+              link: 'equipment-and-rate/',
               id: it.id,
               title_en: it.title_en,
               title_th: it.title_th,
@@ -122,7 +122,10 @@ const currentPage = ref(1);
 const totalPage = ref(1);
 const totalItems = ref(0);
 const search = ref({
-  equipment_department: null,
+  equipment_department: {
+    title: "SITT",
+    value: 1,
+  },
   created_year: null,
   created_month: null,
   is_publish: 1,

@@ -35,8 +35,9 @@ const props = defineProps({
 
 const project = ref([
   {
-    name: "Sample Submission",
+    name: "Sample Submission Equipment & Rate",
     project_file: "images/iconwebtechnopark/icon_home1.png",
+    // url: "/equipment-and-rate",
     url: "/sample-submission",
   },
   {
