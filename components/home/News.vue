@@ -73,8 +73,9 @@ const search = ref({
     news_type_id: undefined,
     is_publish: 1,
 });
-
+console.log(useCookie("lang").value);
 const { data: resNewsType } = await useAsyncData("newsType", async () => {
+
     let data = await $fetch(`${runtimeConfig.public.apiBase}/news-type`, {
         params: {
             is_publish: 1,
@@ -97,6 +98,8 @@ const { data: resNewsType } = await useAsyncData("newsType", async () => {
     return { ...data, data: d };
 });
 
+console.log(useCookie("lang").value);
+console.log(resNewsType.value.data);
 newsType.value = resNewsType.value.data;
 
 console.log("API Base:", runtimeConfig.public.apiBase);
