@@ -73,18 +73,19 @@ const search = ref({
     news_type_id: undefined,
     is_publish: 1,
 });
-console.log(useCookie("lang").value);
-const { data: resNewsType } = await useAsyncData("newsType", async () => {
+const lang = useCookie("lang").value;
 
+const { data: resNewsType } = await useAsyncData("newsType", async () => {
     let data = await $fetch(`${runtimeConfig.public.apiBase}/news-type`, {
         params: {
             is_publish: 1,
-            lang: useCookie("lang").value,
+            lang: lang,
             orderBy: "created_news",
         },
     });
 
     let d = data.data.map((e) => {
+        e.name = lang == "en" ? e.name_en : e.name_th;
         e.category = "news-" + e.name;
         return e;
     });
@@ -99,7 +100,7 @@ const { data: resNewsType } = await useAsyncData("newsType", async () => {
 });
 
 console.log(useCookie("lang").value);
-console.log(resNewsType.value.data);
+
 newsType.value = resNewsType.value.data;
 
 console.log("API Base:", runtimeConfig.public.apiBase);
