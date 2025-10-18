@@ -42,8 +42,8 @@ const project = ref([
   },
   {
     name: "Technological Transfer",
-    project_file: "images/iconwebtechnopark/icon_home5.png",
-    url: "#",
+    project_file: "images/iconwebtechnopark/icon_home6.png",
+    url: "https://www.facebook.com/profile.php?id=61574563475547&locale=th_TH",
   },
   {
     name: "Direction",
@@ -87,8 +87,8 @@ const project = ref([
 .card-img-top {
   width: 70%;
   margin-bottom: 10px;
-  filter: invert(5%) sepia(40%) saturate(8%) hue-rotate(48deg) brightness(90%)
-    contrast(99%);
+  /* filter: invert(5%) sepia(40%) saturate(8%) hue-rotate(48deg) brightness(90%)
+    contrast(99%); */
 }
 
 .project-card:hover {
